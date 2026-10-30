@@ -1,0 +1,152 @@
+{
+    "key": "group_cre8_product_detail",
+    "title": "Block/Product Detail",
+    "fields": [
+        {
+            "name": "gallery",
+            "label": "Images",
+            "type": "gallery",
+            "return_format": "array",
+            "preview_size": "medium",
+            "insert": "append",
+            "library": "all",
+            "instructions": "The first image shows large; the rest appear as thumbnails underneath.",
+            "key": "field_cre8_product_detail_gallery",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            }
+        },
+        {
+            "name": "eyebrow",
+            "label": "Eyebrow",
+            "type": "text",
+            "key": "field_cre8_product_detail_eyebrow",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            }
+        },
+        {
+            "name": "heading",
+            "label": "Heading",
+            "type": "text",
+            "key": "field_cre8_product_detail_heading",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            }
+        },
+        {
+            "name": "content",
+            "label": "Description",
+            "type": "wysiwyg",
+            "tabs": "all",
+            "toolbar": "full",
+            "media_upload": 0,
+            "delay": 0,
+            "instructions": "Bulleted lists show as the key points.",
+            "key": "field_cre8_product_detail_content",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            }
+        },
+        {
+            "name": "datasheet",
+            "label": "Datasheet",
+            "type": "file",
+            "return_format": "array",
+            "library": "all",
+            "mime_types": "pdf",
+            "key": "field_cre8_product_detail_datasheet",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            }
+        },
+        {
+            "name": "datasheet_label",
+            "label": "Datasheet button text",
+            "type": "text",
+            "default_value": "Download datasheet",
+            "key": "field_cre8_product_detail_datasheet_label",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            }
+        },
+        {
+            "name": "link",
+            "label": "Second link",
+            "type": "link",
+            "return_format": "array",
+            "instructions": "Optional, for example \"Discuss your requirement\".",
+            "key": "field_cre8_product_detail_link",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            }
+        },
+        {
+            "name": "note",
+            "label": "Small print",
+            "type": "textarea",
+            "instructions": "Optional note under the buttons.",
+            "new_lines": "",
+            "rows": 3,
+            "key": "field_cre8_product_detail_note",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            }
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf/product-detail"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "modified": 1793376818
+}

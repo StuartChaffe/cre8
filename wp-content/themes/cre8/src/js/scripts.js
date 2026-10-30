@@ -7,3 +7,4 @@ import './components/reveal';
 import './components/hero-slider';
 import './components/trust-strip';
 import './components/project-form';
+import './components/product-gallery';

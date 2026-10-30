@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## 2026-10-30 (product page)
+
+### Added
+- Product Detail block: image gallery with thumbnails, description, key points, datasheet download and optional second link
+- LIMSNT CSC product page under Products, with a redirect from /LIMSNT-CSC.aspx
+
+### Fixed
+- Product card image link is hidden from screen readers, as it repeats the "View product" link
+
+## 2026-10-30 (favicon)
+
+### Added
+- Favicon and Apple touch icon from the Cre8 wordmark (`src/images/favicon/`), output by `cre8_favicons()` unless a Site Icon is set
+
 ## 2026-10-30 (Gravity Forms)
 
 ### Changed

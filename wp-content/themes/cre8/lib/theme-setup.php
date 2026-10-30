@@ -113,3 +113,22 @@ function cre8_clean_body_classes( $classes ) {
     return array_intersect( $classes, $allowed_classes );
 }
 add_filter( 'body_class', 'cre8_clean_body_classes', 20 );
+
+
+
+/**
+ * Favicons from src/images/favicon/ (copied to assets/images/favicon/ by the build).
+ * If a Site Icon is set in Settings > General, WordPress outputs that instead.
+ */
+function cre8_favicons() {
+	echo '<meta name="theme-color" content="#07080a">' . "\n";
+	if ( has_site_icon() ) {
+		return;
+	}
+	$dir = get_theme_file_uri( 'assets/images/favicon/' );
+	printf( '<link rel="icon" href="%s" sizes="48x48">' . "\n", esc_url( $dir . 'favicon.ico' ) );
+	printf( '<link rel="icon" href="%s" type="image/png" sizes="32x32">' . "\n", esc_url( $dir . 'favicon-32.png' ) );
+	printf( '<link rel="apple-touch-icon" href="%s">' . "\n", esc_url( $dir . 'apple-touch-icon.png' ) );
+}
+add_action( 'wp_head', 'cre8_favicons', 2 );
+add_action( 'admin_head', 'cre8_favicons', 2 );

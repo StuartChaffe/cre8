@@ -21,7 +21,7 @@ $class  = 'section' . ( 'feature' === $style && ( ! $bg || 'default' === $bg ) ?
 			<?php if ( 'list' === $style ) : ?>
 			<article class="product-list-card">
 				<?php if ( ! empty( $card['image'] ) ) : ?>
-				<<?php echo $url ? 'a href="' . esc_url( $url ) . '"' : 'div'; ?> class="product-list-card__image"><?php echo cre8_image( $card['image'], 'large' ); ?></<?php echo $url ? 'a' : 'div'; ?>>
+				<<?php echo $url ? 'a href="' . esc_url( $url ) . '" tabindex="-1" aria-hidden="true"' : 'div'; ?> class="product-list-card__image"><?php echo cre8_image( $card['image'], 'large' ); ?></<?php echo $url ? 'a' : 'div'; ?>>
 				<?php endif; ?>
 				<div class="product-list-card__copy">
 					<?php if ( $card['label'] ) : ?><span class="service-card__no"><?php echo esc_html( $card['label'] ); ?></span><?php endif; ?>
