@@ -1,0 +1,61 @@
+// Boxed cards (Card Grid block, boxed style)
+.service-grid {
+	display: grid;
+	gap: 1rem;
+	align-items: stretch;
+
+	@media (min-width: 600px) { grid-template-columns: repeat(2, 1fr); }
+	@media (min-width: 900px) { grid-template-columns: repeat(4, 1fr); }
+}
+
+.service-card {
+	min-height: 300px;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	padding: 1.6rem;
+	border: 1px solid var(--line);
+	background: #0c0e12;
+	transition: border-color .25s, background .25s;
+
+	h3 { min-height: 2.7em; margin-bottom: .75rem; }
+	p { color: var(--muted); }
+	.text-link { align-self: flex-start; margin-top: auto; }
+
+	@at-root a#{&}:hover { border-color: var(--pink); background: var(--panel-2); }
+}
+
+.service-card__no {
+	margin-bottom: auto;
+	padding-bottom: 1.5rem;
+	color: var(--pink-light);
+	font-size: .72rem;
+	letter-spacing: .13em;
+}
+
+.accreditation-logo {
+	width: auto;
+	max-width: 185px;
+	height: 68px;
+	margin: 1.2rem 0 1.5rem;
+	object-fit: contain;
+	object-position: left center;
+}
+
+.accreditation-mark {
+	width: fit-content;
+	min-height: 68px;
+	align-items: flex-start;
+	margin: 1.2rem 0 1.5rem;
+	font-size: 1.35rem;
+}
+
+.section--light {
+	.service-card { border-color: #d2d5da; background: #fff; color: var(--light-text); }
+	.service-card__no { color: var(--pink-dark); }
+	.service-card h3 { color: var(--light-text); }
+	.service-card p { color: #555c67; }
+	.text-mark { color: #171a20; }
+	.text-mark b { color: var(--pink-dark); }
+	.text-mark small { color: #555c67; }
+}

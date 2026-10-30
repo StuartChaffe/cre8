@@ -1,80 +1,49 @@
-/* Box sizing rules */
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-}
+*, *::before, *::after { box-sizing: border-box; }
 
-/* Remove default margin */
-body,
-h1,
-h2,
-h3,
-h4,
-p,
-figure,
-blockquote,
-dl,
-dd {
-  margin: 0;
-}
+html { scroll-behavior: smooth; }
 
-/* Set core root defaults */
-html:focus-within {
-  scroll-behavior: smooth;
-}
-
-/* Set core body defaults */
 body {
-  min-height: 100vh;
-  text-rendering: optimizeSpeed;
-  font-family: var(--font-base);
-  font-size: var(--text-size-base);
-  line-height: var(--leading-base);
-  text-rendering: optimizeSpeed;
-  color: var(--color-text-base);
-  background-color: var(--body-background-color);
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+	margin: 0;
+	background: var(--ink);
+	color: var(--text);
+	font: 400 1rem/1.7 var(--font);
+	-webkit-font-smoothing: antialiased;
 }
 
-/* A elements that don't have a class get default styles */
-a:not([class]) {
-  text-decoration-skip-ink: auto;
+body.menu-open { overflow: hidden; }
+
+img { display: block; max-width: 100%; height: auto; }
+a { color: inherit; text-decoration: none; }
+button, input, select, textarea { color: inherit; font: inherit; }
+address { font-style: normal; }
+
+:focus-visible { outline: 3px solid var(--pink-light); outline-offset: 4px; }
+
+.wrap {
+	width: min(calc(100% - 2rem), var(--max));
+	margin-inline: auto;
+
+	@media (min-width: 900px) { width: min(calc(100% - 4rem), var(--max)); }
 }
 
-/* Make images easier to work with */
-img,
-picture {
-  max-width: 100%;
-  display: block;
+.skip-link {
+	position: fixed;
+	z-index: 999;
+	top: 10px;
+	left: 10px;
+	padding: .7rem 1rem;
+	background: #fff;
+	color: #000;
+	transform: translateY(-150%);
+
+	&:focus { transform: none; }
 }
 
-/* Inherit fonts for inputs and buttons */
-input,
-button,
-textarea,
-select {
-  font: inherit;
-}
-
-/* Remove all animations and transitions for people that prefer not to see them */
 @media (prefers-reduced-motion: reduce) {
-  html:focus-within {
-   scroll-behavior: auto;
-  }
-  *,
-  *::before,
-  *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-    scroll-behavior: auto !important;
-  }
-}
-
-.skip-nav {
-	background: #eee;
-	color: var(--color-text-base);
-	border-radius: 8px;
+	html { scroll-behavior: auto; }
+	*, *::before, *::after {
+		animation-duration: .01ms !important;
+		animation-iteration-count: 1 !important;
+		transition-duration: .01ms !important;
+	}
 }

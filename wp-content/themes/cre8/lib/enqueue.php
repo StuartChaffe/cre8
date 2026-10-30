@@ -5,9 +5,9 @@
  */
 function cre8_scripts() {
 	if ( !is_admin() ) {
-		wp_enqueue_style( 'styles', vite_asset( 'src/styles/styles.scss' ), array(), null );
+		wp_enqueue_style( 'styles', vite_asset_busted( 'src/styles/styles.scss' ), array(), null );
 
-		wp_register_script( 'scripts', vite_asset( 'src/js/scripts.js' ), array( 'jquery' ), null, true );
+		wp_register_script( 'scripts', vite_asset_busted( 'src/js/scripts.js' ), array(), null, true );
 		wp_enqueue_script( 'scripts' );
 
 		foreach ( vite_asset_css( 'src/js/scripts.js' ) as $i => $url ) {
@@ -21,12 +21,11 @@ add_action( 'wp_enqueue_scripts', 'cre8_scripts', 100 );
 
 /**
  * Preload the main font so text renders in it sooner.
- * Only regular DM Sans is preloaded: it covers body text and headings on every page.
- * Instrument Serif and the italics are used on some pages only, so preloading them would waste bandwidth.
+ * Only upright Inter is preloaded: it covers all body text and headings. The italic loads on demand.
  * Skipped if the file is missing (for example before the first build).
  */
 function cre8_preload_fonts() {
-	$fonts = array( 'DM-Sans-Normal.woff2' );
+	$fonts = array( 'Inter-Normal.woff2' );
 
 	foreach ( $fonts as $font ) {
 		if ( ! file_exists( get_theme_file_path( 'assets/fonts/' . $font ) ) ) {
@@ -94,6 +93,24 @@ function vite_asset( $path, $manifest_directory = 'assets' ) {
 	}
 
 	return get_theme_file_uri( trailingslashit( $manifest_directory ) . $manifest[ $path ]['file'] );
+}
+
+
+
+/**
+ * vite_asset() plus a cache-buster for development builds.
+ * Production files have a content hash in their name, so they need none. Development builds keep the
+ * same name every time, so add ?v=<modified time> to stop browsers using a stale copy.
+ * (Not for add_editor_style(), which reads the file from disk and cannot take a query string.)
+ */
+function vite_asset_busted( $path, $manifest_directory = 'assets' ) {
+	$url  = vite_asset( $path, $manifest_directory );
+	$file = get_theme_file_path( str_replace( trailingslashit( get_template_directory_uri() ), '', $url ) );
+
+	if ( preg_match( '/-[A-Za-z0-9_-]{8}\.(css|js)$/', $url ) || ! file_exists( $file ) ) {
+		return $url;
+	}
+	return add_query_arg( 'v', filemtime( $file ), $url );
 }
 
 

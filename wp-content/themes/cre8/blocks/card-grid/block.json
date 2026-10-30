@@ -1,0 +1,18 @@
+{
+    "name": "acf/card-grid",
+    "title": "Card Grid",
+    "description": "Grid of numbered cards: services, accreditations, partners.",
+    "category": "custom-blocks",
+    "icon": "grid-view",
+    "keywords": [],
+    "acf": {
+        "blockVersion": 3,
+        "mode": "preview",
+        "renderTemplate": "card-grid.php"
+    },
+    "align": "full",
+    "supports": {
+        "align": false,
+        "anchor": true
+    }
+}

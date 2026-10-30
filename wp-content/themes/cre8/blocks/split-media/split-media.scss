@@ -1,0 +1,22 @@
+.split-media {
+	display: grid;
+	gap: 2rem;
+	align-items: center;
+
+	> img { width: 100%; height: 100%; min-height: 380px; object-fit: cover; filter: saturate(.75); }
+
+	@media (min-width: 900px) {
+		grid-template-columns: 1.05fr .95fr;
+		gap: 6rem;
+
+		&.split-media--image-left { grid-template-columns: .95fr 1.05fr; }
+		&.split-media--image-left > img { order: -1; }
+	}
+}
+
+.split-media__copy {
+	h2 { margin-bottom: 1.5rem; }
+	p { color: var(--muted); }
+
+	.section--light & p { color: var(--light-muted); }
+}

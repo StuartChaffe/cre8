@@ -5,65 +5,61 @@
  */
 add_action( 'after_setup_theme', function() {
 	register_nav_menus( array(
-		'primary' => __( 'Primary' ),
-		'footer'  => __( 'Footer' ),
+		'primary'        => __( 'Main navigation', 'cre8' ),
+		'footer'         => __( 'Footer: Explore', 'cre8' ),
+		'footer-connect' => __( 'Footer: Connect', 'cre8' ),
+		'legal'          => __( 'Footer: Legal', 'cre8' ),
 	) );
 } );
 
-class BEM_Nav_Walker extends Walker_Nav_Menu {
 
-	private string $prefix;
 
-	public function __construct( string $prefix = 'primary-nav' ) {
-		$this->prefix = $prefix;
-	}
+/**
+ * Main navigation.
+ * A top-level item with children becomes a <details> dropdown. Its first link is the parent page
+ * ("All About"), unless the parent's URL is "#". Items without children are plain links.
+ */
+class Cre8_Nav_Walker extends Walker_Nav_Menu {
 
-	public function start_lvl( &$output, $depth = 0, $args = null ) {
-		$indent  = str_repeat( "\t", $depth );
-		$class   = $depth === 0 ? "{$this->prefix}__sub-menu" : "{$this->prefix}__sub-menu {$this->prefix}__sub-menu--depth-{$depth}";
-		$output .= "\n{$indent}<ul class=\"{$class}\">\n";
-	}
+	public function start_lvl( &$output, $depth = 0, $args = null ) {}
+	public function end_lvl( &$output, $depth = 0, $args = null ) {}
 
 	public function start_el( &$output, $item, $depth = 0, $args = null, $id = 0 ) {
-		$indent = str_repeat( "\t", $depth );
+		$title   = apply_filters( 'the_title', $item->title, $item->ID );
+		$target  = $item->target ? ' target="' . esc_attr( $item->target ) . '" rel="noopener"' : '';
+		$current = $item->current ? ' aria-current="page"' : '';
 
-		$item_classes = [ $depth === 0 ? "{$this->prefix}__item" : "{$this->prefix}__sub-item" ];
-
-		if ( $item->current ) {
-			$item_classes[] = "{$this->prefix}__item--current";
-		}
-		if ( $item->current_item_ancestor ) {
-			$item_classes[] = "{$this->prefix}__item--ancestor";
-		}
-		if ( in_array( 'menu-item-has-children', (array) $item->classes ) ) {
-			$item_classes[] = "{$this->prefix}__item--parent";
-		}
-
-		$output .= "{$indent}<li class=\"" . implode( ' ', $item_classes ) . "\">";
-
-		$link_classes = [ $depth === 0 ? "{$this->prefix}__link" : "{$this->prefix}__sub-link" ];
-
-		$atts = [
-			'href'         => $item->url,
-			'class'        => implode( ' ', $link_classes ),
-			'aria-current' => $item->current ? 'page' : '',
-		];
-
-		if ( $item->target ) {
-			$atts['target'] = $item->target;
-		}
-		if ( $item->target === '_blank' ) {
-			$atts['rel'] = 'noopener noreferrer';
-		}
-
-		$atts   = apply_filters( 'nav_menu_link_attributes', $atts, $item, $args, $depth );
-		$attrs  = '';
-		foreach ( $atts as $attr => $value ) {
-			if ( $value !== '' ) {
-				$attrs .= ' ' . $attr . '="' . esc_attr( $value ) . '"';
+		if ( 0 === $depth && in_array( 'menu-item-has-children', (array) $item->classes, true ) ) {
+			$output .= '<details class="nav-group"><summary>' . esc_html( $title ) . '</summary><div class="nav-panel">';
+			if ( $item->url && '#' !== $item->url ) {
+				$output .= '<a href="' . esc_url( $item->url ) . '"' . $current . '>' . esc_html( sprintf( __( 'All %s', 'cre8' ), $title ) ) . '</a>';
 			}
+			return;
 		}
 
-		$output .= "<a{$attrs}>" . apply_filters( 'the_title', $item->title, $item->ID ) . '</a>';
+		$class   = 0 === $depth ? ' class="nav-direct"' : '';
+		$output .= '<a' . $class . ' href="' . esc_url( $item->url ) . '"' . $target . $current . '>' . esc_html( $title ) . '</a>';
+	}
+
+	public function end_el( &$output, $item, $depth = 0, $args = null ) {
+		if ( 0 === $depth && in_array( 'menu-item-has-children', (array) $item->classes, true ) ) {
+			$output .= '</div></details>';
+		}
+	}
+}
+
+
+
+/**
+ * Footer menus: a flat list of links.
+ */
+class Cre8_Flat_Walker extends Walker_Nav_Menu {
+	public function start_lvl( &$output, $depth = 0, $args = null ) {}
+	public function end_lvl( &$output, $depth = 0, $args = null ) {}
+	public function end_el( &$output, $item, $depth = 0, $args = null ) {}
+
+	public function start_el( &$output, $item, $depth = 0, $args = null, $id = 0 ) {
+		$target  = $item->target ? ' target="' . esc_attr( $item->target ) . '" rel="noopener"' : '';
+		$output .= '<a href="' . esc_url( $item->url ) . '"' . $target . '>' . esc_html( apply_filters( 'the_title', $item->title, $item->ID ) ) . '</a>';
 	}
 }

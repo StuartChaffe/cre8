@@ -1,0 +1,32 @@
+// Block-built pages: if the first block is not a hero, keep it clear of the fixed header.
+.main--blocks > :first-child:not(.hero):not(.inner-hero) {
+	padding-top: calc(var(--header) + clamp(3rem, 6vw, 5rem));
+}
+
+.global-alert {
+	position: relative;
+	z-index: 60;
+	padding: .75rem 1rem;
+	background: var(--pink);
+	color: #fff;
+	text-align: center;
+
+	p { margin: 0; }
+	a { text-decoration: underline; }
+
+	+ .site-header { position: sticky; }
+}
+
+.unsupported-browser {
+	display: none;
+	padding: 1rem;
+	background: #fff;
+	color: #000;
+	text-align: center;
+}
+
+.block-placeholder {
+	padding: 1.5rem;
+	border: 1px dashed var(--line);
+	color: var(--muted);
+}

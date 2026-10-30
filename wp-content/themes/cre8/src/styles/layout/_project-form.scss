@@ -1,0 +1,50 @@
+// Full-screen "Discuss a project" form (tpl-project.php)
+.project-takeover {
+	min-height: 100svh;
+	display: grid;
+	grid-template-rows: auto 1fr;
+	background: radial-gradient(circle at 80% 10%, rgba(236, 27, 105, .16), transparent 28%), #080a0e;
+}
+
+.project-top {
+	min-height: 76px;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 1rem;
+	padding: 1rem max(1rem, calc((100vw - var(--max)) / 2));
+	border-bottom: 1px solid var(--line);
+
+	img { width: 105px; }
+}
+
+.project-close { color: #c9cdd4; font-size: .82rem; &:hover { color: var(--pink-light); } }
+
+.project-shell { width: min(calc(100% - 2rem), 960px); margin: auto; padding: 3rem 0; }
+
+.project-progress {
+	height: 3px;
+	margin-bottom: clamp(3rem, 8vh, 6rem);
+	background: rgba(255, 255, 255, .12);
+
+	span { display: block; width: 20%; height: 100%; background: var(--pink); transition: width .35s; }
+}
+
+// Step headings, written into the form's HTML fields (see lib/gravity-forms.php)
+.question-no { color: var(--pink-light); font-size: .8rem; letter-spacing: .12em; }
+
+.form-step__title {
+	max-width: 850px;
+	margin: .65rem 0 1rem;
+	font-size: clamp(2.3rem, 5.5vw, 5rem);
+	line-height: 1.05;
+}
+
+.form-step__intro { max-width: 700px; color: var(--muted); }
+
+.form-error {
+	margin-top: 2rem;
+	padding: 1rem 1.25rem;
+	border-left: 3px solid var(--pink);
+	background: rgba(236, 27, 105, .1);
+}

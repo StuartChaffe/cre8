@@ -1,0 +1,244 @@
+{
+    "key": "group_cre8_card_grid",
+    "title": "Block/Card Grid",
+    "fields": [
+        {
+            "name": "eyebrow",
+            "label": "Eyebrow",
+            "type": "text",
+            "instructions": "Small pink label above the heading.",
+            "key": "field_cre8_card_grid_eyebrow",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            }
+        },
+        {
+            "name": "heading",
+            "label": "Heading",
+            "type": "text",
+            "key": "field_cre8_card_grid_heading",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            }
+        },
+        {
+            "name": "intro",
+            "label": "Intro",
+            "type": "textarea",
+            "new_lines": "",
+            "rows": 3,
+            "key": "field_cre8_card_grid_intro",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            }
+        },
+        {
+            "name": "style",
+            "label": "Card style",
+            "type": "select",
+            "choices": {
+                "lined": "Lined (homepage services)",
+                "boxed": "Boxed"
+            },
+            "default_value": "boxed",
+            "return_format": "value",
+            "multiple": 0,
+            "allow_null": 0,
+            "ui": 0,
+            "key": "field_cre8_card_grid_style",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            }
+        },
+        {
+            "name": "background",
+            "label": "Background",
+            "type": "select",
+            "choices": {
+                "default": "Dark",
+                "panel": "Dark panel",
+                "light": "Light"
+            },
+            "default_value": "default",
+            "return_format": "value",
+            "multiple": 0,
+            "allow_null": 0,
+            "ui": 0,
+            "key": "field_cre8_card_grid_background",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            }
+        },
+        {
+            "name": "numbered",
+            "label": "Number the cards automatically",
+            "type": "true_false",
+            "default_value": 1,
+            "ui": 1,
+            "key": "field_cre8_card_grid_numbered",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            }
+        },
+        {
+            "name": "cards",
+            "label": "Cards",
+            "type": "repeater",
+            "sub_fields": [
+                {
+                    "name": "label",
+                    "label": "Label",
+                    "type": "text",
+                    "instructions": "Replaces the automatic number, for example QUALITY.",
+                    "key": "field_cre8_card_grid_cards_label",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    }
+                },
+                {
+                    "name": "logo",
+                    "label": "Logo",
+                    "type": "image",
+                    "return_format": "array",
+                    "preview_size": "medium",
+                    "library": "all",
+                    "key": "field_cre8_card_grid_cards_logo",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    }
+                },
+                {
+                    "name": "mark",
+                    "label": "Text mark",
+                    "type": "text",
+                    "instructions": "Shown instead of a logo, for example PRINCE2.",
+                    "key": "field_cre8_card_grid_cards_mark",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    }
+                },
+                {
+                    "name": "title",
+                    "label": "Title",
+                    "type": "text",
+                    "key": "field_cre8_card_grid_cards_title",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    }
+                },
+                {
+                    "name": "text",
+                    "label": "Text",
+                    "type": "textarea",
+                    "new_lines": "",
+                    "rows": 3,
+                    "key": "field_cre8_card_grid_cards_text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    }
+                },
+                {
+                    "name": "link",
+                    "label": "Link",
+                    "type": "link",
+                    "return_format": "array",
+                    "key": "field_cre8_card_grid_cards_link",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    }
+                }
+            ],
+            "layout": "block",
+            "button_label": "Add card",
+            "min": 0,
+            "max": 0,
+            "collapsed": "",
+            "pagination": 0,
+            "key": "field_cre8_card_grid_cards",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            }
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf/card-grid"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "modified": 1793372280
+}

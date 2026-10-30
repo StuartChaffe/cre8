@@ -1,0 +1,161 @@
+{
+    "key": "group_cre8_content_block",
+    "title": "Block/Content Block",
+    "fields": [
+        {
+            "name": "eyebrow",
+            "label": "Eyebrow",
+            "type": "text",
+            "instructions": "Small pink label above the heading.",
+            "key": "field_cre8_content_block_eyebrow",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            }
+        },
+        {
+            "name": "heading",
+            "label": "Heading",
+            "type": "text",
+            "key": "field_cre8_content_block_heading",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            }
+        },
+        {
+            "name": "lede",
+            "label": "Intro",
+            "type": "textarea",
+            "new_lines": "",
+            "rows": 3,
+            "key": "field_cre8_content_block_lede",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            }
+        },
+        {
+            "name": "content",
+            "label": "Content",
+            "type": "wysiwyg",
+            "tabs": "all",
+            "toolbar": "full",
+            "media_upload": 0,
+            "delay": 0,
+            "key": "field_cre8_content_block_content",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            }
+        },
+        {
+            "name": "facts",
+            "label": "Facts panel",
+            "type": "repeater",
+            "sub_fields": [
+                {
+                    "name": "label",
+                    "label": "Label",
+                    "type": "text",
+                    "key": "field_cre8_content_block_facts_label",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    }
+                },
+                {
+                    "name": "value",
+                    "label": "Value",
+                    "type": "text",
+                    "instructions": "Links and line breaks are allowed.",
+                    "key": "field_cre8_content_block_facts_value",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    }
+                }
+            ],
+            "layout": "block",
+            "button_label": "Add fact",
+            "min": 0,
+            "max": 0,
+            "collapsed": "",
+            "pagination": 0,
+            "key": "field_cre8_content_block_facts",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            }
+        },
+        {
+            "name": "background",
+            "label": "Background",
+            "type": "select",
+            "choices": {
+                "default": "Dark",
+                "panel": "Dark panel",
+                "light": "Light"
+            },
+            "default_value": "default",
+            "return_format": "value",
+            "multiple": 0,
+            "allow_null": 0,
+            "ui": 0,
+            "key": "field_cre8_content_block_background",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            }
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf/content-block"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "modified": 1793372280
+}

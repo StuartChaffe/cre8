@@ -1,0 +1,25 @@
+// Design tokens, taken from the Whistlefish prototype (cre8.whistlefish.co.uk).
+// Pink uses the prototype's final "client refinement" values.
+:root {
+	--ink: #07080a;
+	--panel: #0f1115;
+	--panel-2: #151820;
+	--line: rgba(255, 255, 255, .12);
+	--text: #f4f5f7;
+	--muted: #a7acb7;
+	--pink: #ec1b69;
+	--pink-light: #ff4b8d;
+	--pink-dark: #c20d73;
+	--pink-glow: rgba(236, 27, 105, .35);
+	--light: #f1f2f4;
+	--light-text: #111319;
+	--light-muted: #626873;
+	--max: 1480px;
+	--header: 76px;
+	--font: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+	--radius: .55rem;
+
+	@media (min-width: 900px) {
+		--header: 88px;
+	}
+}

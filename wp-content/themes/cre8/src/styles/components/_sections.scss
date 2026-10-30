@@ -1,0 +1,34 @@
+.section { padding: clamp(4.5rem, 8vw, 8rem) 0; }
+.section--panel { background: var(--panel); }
+.section--light { background: var(--light); color: var(--light-text); }
+
+.section-head {
+	display: grid;
+	gap: 1.4rem;
+	margin-bottom: clamp(2.5rem, 5vw, 4rem);
+
+	> p { max-width: 700px; margin: 0; color: var(--muted); }
+	.section--light & > p { color: var(--light-muted); }
+
+	@media (min-width: 900px) {
+		grid-template-columns: 1.15fr .85fr;
+		align-items: end;
+	}
+}
+
+.section-more { margin: 2rem 0 0; }
+
+.empty-state {
+	padding: 2rem;
+	border: 1px solid var(--line);
+	color: var(--muted);
+}
+
+// Fade-in on scroll. Only hidden once JS has said it will reveal them (see reveal.js).
+.has-reveal .reveal {
+	opacity: 0;
+	transform: translateY(24px);
+	transition: opacity .75s ease, transform .75s ease;
+
+	&.is-visible { opacity: 1; transform: none; }
+}

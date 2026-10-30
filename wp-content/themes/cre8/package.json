@@ -1,7 +1,7 @@
 {
   "name": "cre8",
   "version": "1.0.0",
-  "description": "Custom WordPress theme for Cre8",
+  "description": "Custom WordPress theme for Cre8 Associates",
   "directories": {
     "lib": "lib"
   },
@@ -26,8 +26,5 @@
     "sass": "^1.57.1",
     "vite": "^8.0.12",
     "vite-plugin-browser-sync": "^7.0.0"
-  },
-  "dependencies": {
-    "swiper": "^12.1.4"
   }
 }

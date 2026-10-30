@@ -3,20 +3,12 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="icon" href="/favicon.ico">
-<link rel="icon" href="/favicon.svg" type="image/svg+xml">
-<link rel="apple-touch-icon" href="/apple-touch-icon.png">
-
 <?php wp_head(); ?>
 <?php get_template_part( 'partials/global-analytics' ); ?>
 </head>
-<body <?php body_class(); ?>>
+<body <?php body_class( 'no-js' ); ?>>
 <?php wp_body_open(); ?>
-
-<?php get_template_part('partials/global-browser-notice'); ?>
-
-<a id="skip-nav" class="skip-nav" href="#content">Skip to main content</a>
-
-<div class="global-container">
-<?php get_template_part('partials/global-alert'); ?>
-<?php get_template_part('partials/site-header'); ?>
+<?php get_template_part( 'partials/global-browser-notice' ); ?>
+<a class="skip-link" href="#content">Skip to main content</a>
+<?php get_template_part( 'partials/global-alert' ); ?>
+<?php get_template_part( 'partials/site-header' ); ?>

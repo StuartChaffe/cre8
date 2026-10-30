@@ -1,15 +1,5 @@
 <?php
 
-/**
- * Set image sizes
- */
-function cre8_register_image_sizes() {
-	add_image_size( 'Banner', 600, 450, true );
-	add_image_size( 'Square', 400, 400, true );
-	add_image_size( 'Gallery', 1400, 800, true );
-}
-add_action( 'after_setup_theme', 'cre8_register_image_sizes' );
-
 function cre8_image_defaults() {
 	update_option( 'image_default_align', 'center' );
 	update_option( 'image_default_link_type', 'none' );

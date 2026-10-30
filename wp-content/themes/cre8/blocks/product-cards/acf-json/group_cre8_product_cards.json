@@ -1,0 +1,246 @@
+{
+    "key": "group_cre8_product_cards",
+    "title": "Block/Product Cards",
+    "fields": [
+        {
+            "name": "eyebrow",
+            "label": "Eyebrow",
+            "type": "text",
+            "instructions": "Small pink label above the heading.",
+            "key": "field_cre8_product_cards_eyebrow",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            }
+        },
+        {
+            "name": "heading",
+            "label": "Heading",
+            "type": "text",
+            "key": "field_cre8_product_cards_heading",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            }
+        },
+        {
+            "name": "intro",
+            "label": "Intro",
+            "type": "textarea",
+            "new_lines": "",
+            "rows": 3,
+            "key": "field_cre8_product_cards_intro",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            }
+        },
+        {
+            "name": "style",
+            "label": "Card style",
+            "type": "select",
+            "choices": {
+                "feature": "Feature (homepage)",
+                "list": "List (products page)"
+            },
+            "default_value": "feature",
+            "return_format": "value",
+            "multiple": 0,
+            "allow_null": 0,
+            "ui": 0,
+            "key": "field_cre8_product_cards_style",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            }
+        },
+        {
+            "name": "background",
+            "label": "Background",
+            "type": "select",
+            "choices": {
+                "default": "Dark",
+                "panel": "Dark panel",
+                "light": "Light"
+            },
+            "default_value": "default",
+            "return_format": "value",
+            "multiple": 0,
+            "allow_null": 0,
+            "ui": 0,
+            "key": "field_cre8_product_cards_background",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            }
+        },
+        {
+            "name": "cards",
+            "label": "Cards",
+            "type": "repeater",
+            "sub_fields": [
+                {
+                    "name": "image",
+                    "label": "Image",
+                    "type": "image",
+                    "return_format": "array",
+                    "preview_size": "medium",
+                    "library": "all",
+                    "instructions": "Leave empty to show the pink signal graphic.",
+                    "key": "field_cre8_product_cards_cards_image",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    }
+                },
+                {
+                    "name": "label",
+                    "label": "Label",
+                    "type": "text",
+                    "key": "field_cre8_product_cards_cards_label",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    }
+                },
+                {
+                    "name": "title",
+                    "label": "Title",
+                    "type": "text",
+                    "key": "field_cre8_product_cards_cards_title",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    }
+                },
+                {
+                    "name": "text",
+                    "label": "Text",
+                    "type": "textarea",
+                    "new_lines": "",
+                    "rows": 3,
+                    "key": "field_cre8_product_cards_cards_text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    }
+                },
+                {
+                    "name": "points",
+                    "label": "Key points",
+                    "type": "textarea",
+                    "instructions": "One per line.",
+                    "new_lines": "",
+                    "rows": 3,
+                    "key": "field_cre8_product_cards_cards_points",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    }
+                },
+                {
+                    "name": "link",
+                    "label": "Link",
+                    "type": "link",
+                    "return_format": "array",
+                    "key": "field_cre8_product_cards_cards_link",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    }
+                }
+            ],
+            "layout": "block",
+            "button_label": "Add product",
+            "min": 0,
+            "max": 0,
+            "collapsed": "",
+            "pagination": 0,
+            "key": "field_cre8_product_cards_cards",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            }
+        },
+        {
+            "name": "note",
+            "label": "Note below the cards",
+            "type": "textarea",
+            "new_lines": "",
+            "rows": 3,
+            "key": "field_cre8_product_cards_note",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            }
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf/product-cards"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "modified": 1793372280
+}

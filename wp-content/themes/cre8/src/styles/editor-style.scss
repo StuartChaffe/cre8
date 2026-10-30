@@ -1,24 +1,22 @@
-@import "settings";
-@import "utilities/mq";
-@import "utilities/mixins";
-@import "variables";
-@import "utilities/colors";
-
+// Loaded in the block editor through add_editor_style(), which scopes it to the editor canvas.
 @import "base/fonts";
+@import "base/tokens";
 @import "base/base";
 @import "base/typography";
-@import "base/figures";
-@import "base/gutenberg";
-@import "base/tables";
 
-@import "layout/layout";
-
-@import "components/content";
-@import "components/icons";
 @import "components/buttons";
-@import "components/social-links";
-@import "components/block-heading";
+@import "components/sections";
+@import "components/cards";
+@import "components/rich-copy";
+@import "components/posts";
+
+@import "layout/inner-hero";
 
 @import "../../blocks/*/*.scss";
 
 @import "utilities/helpers";
+
+// The editor has no fixed header, so heroes do not need room for one.
+.hero, .inner-hero { padding-top: 4rem; }
+.hero, .hero-copy-panel { min-height: 560px; }
+.block-editor-block-list__layout .wp-block { max-width: none; margin-block: 0; }

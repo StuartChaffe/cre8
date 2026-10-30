@@ -1,125 +1,36 @@
-.wp-block-buttons {
-	gap: 0.5rem;
-	display: flex;
-	flex-wrap: wrap;
-	margin-top: var(--spacing-l);
-	.wp-block-button + .wp-block-button {
-		@include mq(medium) {
-			margin-left: 0.5rem;
-		}
-	}
-}
-.btn, .wp-block-button__link, .wpcf7-submit {
-	--button-bg: var(--color-primary);
-	--button-color: var(--color-text-reversed);
-	--button-hover-bg: var(--color-tertiary);
-	--button-hover-color: var(--color-text-reversed);
-	--button-radius: 50px;
-	--button-border-width: 0;
-	--button-border-color: transparent;
-	--button-hover-border-color: transparent;
-	--button-outline-width: 1.5px;
-	--button-outline-style: solid;
-	--button-outline-color: currentColor;
-	--button-outline-offset: 0.1lh;
-	--button-padding: 0.9rem 1.5rem;
-	--button-gap: 0.5em;
-	position: relative;
+.button {
+	min-height: 50px;
 	display: inline-flex;
 	align-items: center;
-	gap: var(--button-gap);
-	padding: var(--button-padding);
-
-	background: var(--button-bg);
-	color: var(--button-color);
-
-	border: var(--button-border-width) solid var(--button-border-color);
-	border-radius: var(--button-radius);
-
-	text-decoration: none;
-	font-weight: var(--font-weight-semi);
-	font-size: var(--text-size-base);
-	line-height: 1;
-
-	appearance: none;
+	justify-content: center;
+	gap: .65rem;
+	padding: .8rem 1.15rem;
+	border: 1px solid transparent;
+	border-radius: var(--radius);
+	background: var(--pink);
+	color: #fff;
+	font-weight: 600;
 	cursor: pointer;
-	transition: background var(--transition-base), color var(--transition-base);
+	transition: transform .25s, background .25s, border-color .25s, color .25s;
 
-	&:after {
-		position: relative;
-		display: block;
-		flex: none;
-		width: 13px;
-		height: 13px;
-		content: '';
-		background-color: currentColor;
-		mask: url('../../images/arrow.svg') center / contain no-repeat;
-		right: 0;
-		transition: transform var(--transition-base);
-	}
-
-	&:hover {
-		background: var(--button-hover-bg);
-		color: var(--button-hover-color);
-		border-color: var(--button-hover-border-color);
-		text-decoration: none;
-		&:after {
-			// transform: translateY(10%) rotate(-45deg);
-			// transform: translate(3px, 3px);
-				transform: rotate(360deg);
-		}
-	}
-
-	&:focus-visible {
-		outline-width: var(--button-outline-width);
-		outline-style: var(--button-outline-style);
-		outline-color: var(--button-outline-color);
-		outline-offset: var(--button-outline-offset);
-	}
-
-	&:active {
-		transform: scale(99%);
-	}
+	&::after { content: ">"; }
+	&:hover { transform: translateY(-2px); background: var(--pink-light); }
 }
 
-.btn svg {
-	height: var(--button-icon-size, 1.2cap);
-	width: auto;
-	flex: none;
+.button--ghost {
+	border-color: rgba(255, 255, 255, .45);
+	background: rgba(8, 9, 11, .38);
+	backdrop-filter: blur(8px);
+
+	&:hover { border-color: #fff; background: #fff; color: #08090b; }
 }
 
-.btn--secondary {
-	--button-bg: var(--color-secondary);
-	--button-color: var(--color-text-base);
-	--button-hover-bg: var(--color-primary);
-}
+.text-link {
+	display: inline-flex;
+	gap: .6rem;
+	padding-bottom: .15rem;
+	border-bottom: 1px solid var(--pink);
+	font-weight: 600;
 
-.btn--outline {
-	--button-bg: transparent;
-	--button-color: var(--color-text-dark);
-	--button-hover-bg: var(--color-text-dark);
-	--button-hover-color: var(--color-text-reversed);
-	--button-border-width: 2px;
-	--button-border-color: currentColor;
-}
-
-.btn-group {
-	display: flex;
-	flex-wrap: wrap;
-	align-items: center;
-	gap: var(--spacing);
-}
-
-.btn--link {
-	--button-bg: transparent;
-	--button-color: var(--color-text-base);
-	--button-hover-bg: transparent;
-	--button-hover-color: var(--color-text-base);
-
-	padding: 0;
-
-
-	&:hover:after {
-		transform: rotate(360deg);
-	}
+	&::after { content: ">"; color: var(--pink-light); }
 }

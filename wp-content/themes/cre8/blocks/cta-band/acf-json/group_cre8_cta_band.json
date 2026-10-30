@@ -1,0 +1,84 @@
+{
+    "key": "group_cre8_cta_band",
+    "title": "Block/CTA Band",
+    "fields": [
+        {
+            "name": "eyebrow",
+            "label": "Eyebrow",
+            "type": "text",
+            "instructions": "Small pink label above the heading.",
+            "key": "field_cre8_cta_band_eyebrow",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            }
+        },
+        {
+            "name": "heading",
+            "label": "Heading",
+            "type": "text",
+            "key": "field_cre8_cta_band_heading",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            }
+        },
+        {
+            "name": "text",
+            "label": "Text",
+            "type": "textarea",
+            "new_lines": "",
+            "rows": 3,
+            "key": "field_cre8_cta_band_text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            }
+        },
+        {
+            "name": "link",
+            "label": "Button",
+            "type": "link",
+            "return_format": "array",
+            "key": "field_cre8_cta_band_link",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            }
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf/cta-band"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "modified": 1793372280
+}

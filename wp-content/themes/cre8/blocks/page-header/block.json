@@ -1,14 +1,18 @@
 {
     "name": "acf/page-header",
     "title": "Page Header",
-    "description": "Page header with title, description and button",
+    "description": "Inner page hero with breadcrumbs, title and intro.",
     "category": "custom-blocks",
     "icon": "cover-image",
-    "keywords": ["header", "hero"],
+    "keywords": [],
     "acf": {
         "blockVersion": 3,
         "mode": "preview",
         "renderTemplate": "page-header.php"
     },
-    "align": "full"
+    "align": "full",
+    "supports": {
+        "align": false,
+        "anchor": true
+    }
 }

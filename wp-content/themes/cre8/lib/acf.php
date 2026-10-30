@@ -8,6 +8,7 @@ add_action('acf/init', function () {
         $parent = acf_add_options_page(array(
             'page_title'  => __('Theme Options'),
             'menu_title'  => __('Theme Options'),
+            'menu_slug'   => 'theme-options',
             'redirect'    => false,
         ));
     }

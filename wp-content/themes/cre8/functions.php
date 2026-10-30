@@ -36,5 +36,11 @@ require_once( get_template_directory() . '/lib/comments.php' );
 // Editor role capability enhancements
 require_once( get_template_directory() . '/lib/roles.php' );
 
+// Gravity Forms: "Discuss a project" enquiry form
+require_once( get_template_directory() . '/lib/gravity-forms.php' );
+
+// 301 redirects from the old site's .aspx addresses
+require_once( get_template_directory() . '/lib/redirects.php' );
+
 // Register ACF blocks
 require_once( get_template_directory() . '/blocks/register.php' );

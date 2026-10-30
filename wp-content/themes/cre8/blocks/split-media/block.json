@@ -1,0 +1,18 @@
+{
+    "name": "acf/split-media",
+    "title": "Split Media",
+    "description": "Text beside an image.",
+    "category": "custom-blocks",
+    "icon": "align-pull-right",
+    "keywords": [],
+    "acf": {
+        "blockVersion": 3,
+        "mode": "preview",
+        "renderTemplate": "split-media.php"
+    },
+    "align": "full",
+    "supports": {
+        "align": false,
+        "anchor": true
+    }
+}

@@ -1,0 +1,18 @@
+{
+    "name": "acf/product-cards",
+    "title": "Product Cards",
+    "description": "Product or system cards with image, text and link.",
+    "category": "custom-blocks",
+    "icon": "products",
+    "keywords": [],
+    "acf": {
+        "blockVersion": 3,
+        "mode": "preview",
+        "renderTemplate": "product-cards.php"
+    },
+    "align": "full",
+    "supports": {
+        "align": false,
+        "anchor": true
+    }
+}

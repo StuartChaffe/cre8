@@ -1,0 +1,106 @@
+{
+    "key": "group_cre8_trust_strip",
+    "title": "Block/Trust Strip",
+    "fields": [
+        {
+            "name": "items",
+            "label": "Items",
+            "type": "repeater",
+            "sub_fields": [
+                {
+                    "name": "logo",
+                    "label": "Logo",
+                    "type": "image",
+                    "return_format": "array",
+                    "preview_size": "medium",
+                    "library": "all",
+                    "key": "field_cre8_trust_strip_items_logo",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    }
+                },
+                {
+                    "name": "mark",
+                    "label": "Text mark",
+                    "type": "text",
+                    "instructions": "Shown instead of a logo, for example PRINCE2.",
+                    "key": "field_cre8_trust_strip_items_mark",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    }
+                },
+                {
+                    "name": "title",
+                    "label": "Title",
+                    "type": "text",
+                    "key": "field_cre8_trust_strip_items_title",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    }
+                },
+                {
+                    "name": "text",
+                    "label": "Text",
+                    "type": "text",
+                    "key": "field_cre8_trust_strip_items_text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    }
+                }
+            ],
+            "layout": "block",
+            "button_label": "Add item",
+            "min": 0,
+            "max": 0,
+            "collapsed": "",
+            "pagination": 0,
+            "key": "field_cre8_trust_strip_items",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            }
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf/trust-strip"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "modified": 1793372280
+}

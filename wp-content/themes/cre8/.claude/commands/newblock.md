@@ -26,7 +26,7 @@ Create a new ACF block in this WordPress theme.
 
 **blocks/{slug}/{slug}.php**
 - Start with `<?php` then declare variables using `get_field()` for each field
-- Wrap everything in `<section class="block {slug}"><div class="container">...</div></section>`
+- Wrap everything in `<section class="section {slug}"><div class="wrap">...</div></section>`; use `cre8_section_head()` for an eyebrow/heading/intro
 - For each field, wrap in `<?php if ($field_name) : ?>` / `<?php endif; ?>`
 - Escaping rules by type:
   - text: `esc_html($var)`
@@ -39,7 +39,7 @@ Create a new ACF block in this WordPress theme.
 
 **blocks/{slug}/{slug}.scss**
 - BEM scaffold: one rule per field as a `__{element}` child of `.{slug}`
-- `.{slug}` block with `padding-top/bottom: var(--spacing-xl)`
+- `.{slug}` block; spacing comes from `.section`, colours from the tokens in `src/styles/base/_tokens.scss`
 - Leave child rules empty — just the selectors as placeholders
 
 **acf-json/group_{hex}.json**

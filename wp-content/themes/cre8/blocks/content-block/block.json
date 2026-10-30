@@ -1,14 +1,18 @@
 {
     "name": "acf/content-block",
     "title": "Content Block",
-    "description": "",
+    "description": "Rich text with an optional facts panel.",
     "category": "custom-blocks",
-    "icon": "editor-alignleft",
-    "keywords": ["content", "text"],
+    "icon": "text-page",
+    "keywords": [],
     "acf": {
         "blockVersion": 3,
-        "mode": "auto",
+        "mode": "preview",
         "renderTemplate": "content-block.php"
     },
-    "align": "full"
+    "align": "full",
+    "supports": {
+        "align": false,
+        "anchor": true
+    }
 }

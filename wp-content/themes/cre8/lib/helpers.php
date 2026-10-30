@@ -134,3 +134,136 @@ function my_login_logo() { ?>
 	</style>
 <?php }
 add_action( 'login_enqueue_scripts', 'my_login_logo' );
+
+
+
+/**
+ * Theme Options value, or a default when ACF is missing or the field is empty.
+ */
+function cre8_option( $name, $default = '' ) {
+	if ( ! function_exists( 'get_field' ) ) {
+		return $default;
+	}
+	$value = get_field( $name, 'option' );
+	return $value ? $value : $default;
+}
+
+
+
+/**
+ * Render an ACF link array as an <a>. Returns '' when the link is empty.
+ */
+function cre8_link( $link, $class = '', $fallback_text = '' ) {
+	if ( empty( $link['url'] ) ) {
+		return '';
+	}
+	$text   = ! empty( $link['title'] ) ? $link['title'] : $fallback_text;
+	$target = ! empty( $link['target'] ) ? ' target="' . esc_attr( $link['target'] ) . '" rel="noopener"' : '';
+	$class  = $class ? ' class="' . esc_attr( $class ) . '"' : '';
+	return '<a' . $class . ' href="' . esc_url( $link['url'] ) . '"' . $target . '>' . esc_html( $text ) . '</a>';
+}
+
+
+
+/**
+ * Render an ACF image array. Extra attributes are passed as an array.
+ */
+function cre8_image( $image, $size = 'large', $attr = array() ) {
+	if ( empty( $image['ID'] ) ) {
+		return '';
+	}
+	return wp_get_attachment_image( $image['ID'], $size, false, $attr );
+}
+
+
+
+/**
+ * Eyebrow, heading and intro used at the top of most sections.
+ */
+function cre8_section_head( $eyebrow, $heading, $intro = '', $intro_class = 'lede' ) {
+	if ( ! $eyebrow && ! $heading && ! $intro ) {
+		return;
+	}
+	?>
+	<div class="section-head reveal">
+		<div>
+			<?php if ( $eyebrow ) : ?><p class="eyebrow"><?php echo esc_html( $eyebrow ); ?></p><?php endif; ?>
+			<?php if ( $heading ) : ?><h2><?php echo esc_html( $heading ); ?></h2><?php endif; ?>
+		</div>
+		<?php if ( $intro ) : ?><p class="<?php echo esc_attr( $intro_class ); ?>"><?php echo esc_html( $intro ); ?></p><?php endif; ?>
+	</div>
+	<?php
+}
+
+
+
+/**
+ * Section background modifier from the block's Background field.
+ */
+function cre8_background_class( $background ) {
+	return in_array( $background, array( 'panel', 'light' ), true ) ? ' section--' . $background : '';
+}
+
+
+
+/**
+ * Text logo such as PRINCE2, with the trailing number picked out in pink.
+ */
+function cre8_text_mark( $mark, $class = 'text-mark', $small = '' ) {
+	if ( ! $mark ) {
+		return '';
+	}
+	$html = '<span>' . preg_replace( '/(\d+)$/', '<b>$1</b>', esc_html( $mark ) ) . '</span>';
+	if ( $small ) {
+		$html .= '<small>' . esc_html( $small ) . '</small>';
+	}
+	return '<div class="' . esc_attr( $class ) . '" aria-label="' . esc_attr( $mark ) . '">' . $html . '</div>';
+}
+
+
+
+/**
+ * Heading text where *word* is shown highlighted.
+ */
+function cre8_highlight( $text ) {
+	return preg_replace( '/\*([^*]+)\*/', '<em>$1</em>', esc_html( $text ) );
+}
+
+
+
+/**
+ * Breadcrumbs: Home / ancestors / current page.
+ */
+function cre8_breadcrumbs() {
+	if ( is_front_page() ) {
+		return;
+	}
+	$items = array( '<a href="' . esc_url( home_url( '/' ) ) . '">Home</a>' );
+
+	if ( is_singular( 'post' ) || is_home() || is_archive() ) {
+		$blog = (int) get_option( 'page_for_posts' );
+		if ( $blog && ! is_home() ) {
+			$items[] = '<a href="' . esc_url( get_permalink( $blog ) ) . '">' . esc_html( get_the_title( $blog ) ) . '</a>';
+		}
+	}
+
+	if ( is_page() ) {
+		foreach ( array_reverse( get_post_ancestors( get_the_ID() ) ) as $ancestor ) {
+			$items[] = '<a href="' . esc_url( get_permalink( $ancestor ) ) . '">' . esc_html( get_the_title( $ancestor ) ) . '</a>';
+		}
+	}
+
+	if ( is_home() ) {
+		$items[] = esc_html( single_post_title( '', false ) );
+	} elseif ( is_archive() ) {
+		$items[] = esc_html( wp_strip_all_tags( get_the_archive_title() ) );
+	} elseif ( is_search() ) {
+		$items[] = 'Search';
+	} elseif ( is_404() ) {
+		$items[] = 'Page not found';
+	} else {
+		$items[] = esc_html( get_the_title() );
+	}
+
+	echo '<nav class="breadcrumbs" aria-label="Breadcrumb">' . implode( '<span aria-hidden="true">/</span>', $items ) . '</nav>';
+}

@@ -1,0 +1,112 @@
+// Gravity Forms, styled by the theme (its own CSS is switched off in lib/gravity-forms.php).
+// Written for the "Discuss a project" form; general enough for other simple forms.
+
+.gform_wrapper {
+	// Required markers and the legend: every field is required unless its intro says otherwise
+	.gform_required_legend, .gfield_required { display: none; }
+
+	// Spam trap: must stay hidden from people
+	.gform_validation_container, .gfield--type-honeypot { display: none !important; }
+
+	.hidden_label > .gfield_label, .gfield_visibility_hidden { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; }
+
+	.gform_fields { display: grid; gap: 2rem; }
+	.gfield { min-width: 0; margin: 0; padding: 0; border: 0; }
+	.gfield--type-html { margin-bottom: -.5rem; }
+
+	.gfield_label { display: block; margin-bottom: .5rem; color: #d6d9df; font-size: 1rem; }
+
+	input[type="text"], input[type="email"], input[type="tel"], input[type="url"], input[type="number"], textarea, select {
+		width: 100%;
+		padding: .85rem 0;
+		border: 0;
+		border-bottom: 2px solid #5b606a;
+		border-radius: 0;
+		background: transparent;
+		font-size: clamp(1.2rem, 2.5vw, 1.8rem);
+		outline: 0;
+
+		&:focus { border-color: var(--pink); }
+		&::placeholder { color: #5f6570; }
+	}
+
+	textarea { min-height: 150px; resize: vertical; }
+
+	// Radio and checkbox choices as large tiles
+	.gfield_radio, .gfield_checkbox { display: grid; gap: .75rem; }
+	.answer-grid .gfield_radio { @media (min-width: 600px) { grid-template-columns: repeat(2, 1fr); } }
+
+	.gchoice, .ginput_container_consent { position: relative; }
+
+	.gchoice input, .ginput_container_consent input {
+		position: absolute;
+		opacity: 0;
+		pointer-events: none;
+	}
+
+	.gchoice label, .ginput_container_consent label {
+		min-height: 64px;
+		display: flex;
+		align-items: center;
+		gap: 1rem;
+		padding: .9rem 1rem;
+		border: 1px solid rgba(255, 255, 255, .2);
+		background: rgba(255, 255, 255, .025);
+		cursor: pointer;
+		transition: .2s;
+
+		&::before { content: ""; width: 18px; height: 18px; flex: 0 0 auto; border: 1px solid #7e8490; }
+		&:hover { border-color: rgba(255, 255, 255, .45); }
+	}
+
+	.gchoice input:focus-visible + label, .ginput_container_consent input:focus-visible + label { outline: 3px solid var(--pink-light); outline-offset: 2px; }
+	.gchoice input:checked + label, .ginput_container_consent input:checked + label { border-color: var(--pink); background: rgba(236, 27, 105, .1); }
+	.gchoice input:checked + label::before, .ginput_container_consent input:checked + label::before { border: 5px solid var(--pink); background: #fff; }
+
+	// Progress line
+	.gf_progressbar_wrapper { margin-bottom: clamp(3rem, 8vh, 6rem); }
+	.gf_progressbar_title { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0, 0, 0, 0); }
+	.gf_progressbar { height: 3px; background: rgba(255, 255, 255, .12); }
+	.gf_progressbar_percentage { height: 100%; background: var(--pink) !important; transition: width .35s; span { display: none; } }
+
+	// Buttons: Gravity Forms gives Continue and Send the theme's .button class
+	.gform_page_footer, .gform_footer { display: flex; flex-wrap: wrap; align-items: center; gap: 1rem; margin-top: 2rem; }
+
+	.gform_previous_button {
+		min-height: 50px;
+		padding: .75rem 1rem;
+		border: 1px solid var(--line);
+		background: transparent;
+		color: var(--text);
+		&::after { content: none; }
+		&:hover { transform: none; border-color: #fff; background: transparent; }
+	}
+
+	.gform_next_button, .gform_button { order: 2; }
+
+	// Errors
+	.gform_validation_errors {
+		margin-bottom: 2rem;
+		padding: 1rem 1.25rem;
+		border-left: 3px solid var(--pink);
+		background: rgba(236, 27, 105, .1);
+
+		h2 { font-size: 1rem; font-weight: 600; letter-spacing: 0; }
+		ol { margin: .5rem 0 0; padding-left: 1.2rem; }
+		a { color: var(--pink-light); text-decoration: underline; }
+	}
+
+	.gfield_error input, .gfield_error textarea { border-color: var(--pink-light); }
+	.gfield_error .gchoice label, .gfield_error .ginput_container_consent label { border-color: var(--pink-light); }
+	.gfield_validation_message, .validation_message { margin-top: .5rem; color: var(--pink-light); font-size: .9rem; }
+
+	// The spinner Gravity Forms shows while it moves between steps
+	.gform-loader, .gform_ajax_spinner { margin-left: .5rem; }
+}
+
+.gform_wrapper .gform_heading { margin: 0; }
+.gform_ajax_frame, iframe[name^="gform_ajax_frame"] { display: none; }
+
+.gform_confirmation_message { animation: step-in .4s ease; }
+
+@keyframes step-in { from { opacity: 0; transform: translateY(18px); } }

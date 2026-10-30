@@ -1,0 +1,49 @@
+.trust {
+	border-block: 1px solid #d9dce2;
+	background: #f2f3f5;
+	color: #12151a;
+
+	.text-mark { height: 58px; color: #15181d; }
+	.text-mark b { color: var(--pink-dark); }
+	.text-mark small { color: var(--light-muted); }
+}
+
+// Swipes sideways on phones (and steps on its own, see trust-strip.js); a row of five from 700px.
+.trust-grid {
+	display: flex;
+	overflow-x: auto;
+	scroll-snap-type: x mandatory;
+	scrollbar-width: none;
+
+	&::-webkit-scrollbar { display: none; }
+
+	@media (min-width: 700px) {
+		display: grid;
+		grid-auto-columns: minmax(0, 1fr);
+		grid-auto-flow: column;
+		overflow: visible;
+	}
+}
+
+.trust-item {
+	min-height: 150px;
+	flex: 0 0 82%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	gap: .65rem;
+	padding: 1rem;
+	border-right: 1px solid #d9dce2;
+	scroll-snap-align: start;
+	text-align: center;
+
+	&:last-child { border-right: 0; }
+
+	strong { color: #111319; font-size: .92rem; font-weight: 600; letter-spacing: -.02em; line-height: 1.1; }
+	span { color: var(--light-muted); font-size: .7rem; letter-spacing: .04em; }
+
+	@media (min-width: 900px) { min-height: 165px; }
+}
+
+.trust-logo { width: auto; max-width: 150px; height: 62px; object-fit: contain; }

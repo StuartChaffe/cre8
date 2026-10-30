@@ -1,6 +1,6 @@
 # Cre8
 
-Custom WordPress theme for the Cre8 website. Built on the Origin starter theme by [Marc Jenkins](https://github.com/marcjenkins/origin), with [Vite](https://vite.dev/) for assets and ACF Pro blocks for content.
+Custom WordPress theme for Cre8 Associates. The design is a WordPress build of the Whistlefish prototype (cre8.whistlefish.co.uk). Built on the Origin starter theme by [Marc Jenkins](https://github.com/marcjenkins/origin), with [Vite](https://vite.dev/) for assets and ACF Pro blocks for content.
 
 ## Requirements
 
@@ -14,6 +14,11 @@ Custom WordPress theme for the Cre8 website. Built on the Origin starter theme b
 2. `cd wp-content/themes/cre8 && npm install`
 3. `cp .env-sample .env` and set the proxy host and SSL paths. Leave out the two SSL lines for plain HTTP.
 4. `npm run watch`
+
+## Plugins
+
+- **ACF Pro**: required. Field groups load from `acf-json/` and each block's `acf-json/` folder.
+- **Gravity Forms**: powers "Discuss a project". The form is created automatically the first time you load an admin page with Gravity Forms active.
 
 ## Commands
 

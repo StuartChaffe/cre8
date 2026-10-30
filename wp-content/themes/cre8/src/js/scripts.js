@@ -2,7 +2,8 @@
 
 import './components/no-js';
 import './components/unsupported-browsers';
-import './components/toggle';
-import './components/accordion';
-import './components/image-gallery';
-import './components/menu';
+import './components/navigation';
+import './components/reveal';
+import './components/hero-slider';
+import './components/trust-strip';
+import './components/project-form';
