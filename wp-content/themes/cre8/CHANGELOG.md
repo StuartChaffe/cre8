@@ -10,6 +10,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - LIMSNT CSC product page under Products, with a redirect from /LIMSNT-CSC.aspx
 
 ### Fixed
+- Links, buttons and slider controls in block previews no longer respond to clicks in the editor, so clicking selects the block
 - Product card image link is hidden from screen readers, as it repeats the "View product" link
 
 ## 2026-10-30 (favicon)

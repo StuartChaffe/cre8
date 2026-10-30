@@ -20,3 +20,7 @@
 .hero, .inner-hero { padding-top: 4rem; }
 .hero, .hero-copy-panel { min-height: 560px; }
 .block-editor-block-list__layout .wp-block { max-width: none; margin-block: 0; }
+
+// Block previews are for looking at, not using: links, buttons and slider controls ignore clicks,
+// so clicking anywhere in a block selects it. Edit its content in the sidebar.
+.acf-block-preview * { pointer-events: none !important; }
