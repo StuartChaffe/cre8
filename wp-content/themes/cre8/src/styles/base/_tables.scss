@@ -1,0 +1,28 @@
+table {
+	margin-bottom: var(--spacing-xl);
+	width: 100%;
+	border-collapse: collapse;
+	// tr {
+		
+	// }
+}
+
+table th,
+table td {
+	padding: 0.5em;
+	border: 1px solid var(--color-tertiary);
+	text-align: left;
+	-webkit-font-smoothing: antialiased;
+}
+
+table th {
+	border-width: 2px;
+}
+
+table tr:nth-child(even) {
+	background: var(--color-grey-light);
+}
+
+table tbody tr:hover {
+	background: var(--color-grey);
+}

@@ -1,0 +1,104 @@
+// =============================================================================
+// Site
+// =============================================================================
+
+.global-container {
+	background-image: url("../../images/bkg-dots-yellow.png"), url("../../images/bkg-bottom-dots-yellow.png");
+	background-position: -50px 50px, right bottom 100px;
+    background-repeat: no-repeat, no-repeat;
+    background-size: 120%;
+	display: flex;
+	flex-direction: column;
+	min-height: 100vh;
+	@include mq(medium) {
+		background-position: -100px 100px, right bottom 100px;
+	    background-repeat: no-repeat, no-repeat;
+	    background-size: 70%;
+	}
+	> *:not(section, header, footer, article, iframe) {
+		max-width: var(--container-width-s);
+		margin-left: auto !important;
+		margin-right: auto !important;
+		width: 100%;
+		padding: 0 1.5rem;
+		// z-index: 1;
+		// @include mq(medium) {
+		// 	padding: 0 1rem;
+		// }
+	}
+	> h1,
+	> main > h1 {
+		margin: var(--spacing-xl) 0 var(--spacing-l) 0;
+	}
+
+	// If the content doesn't end with a section, space it from the footer.
+	// Set on the last element rather than the footer, which keeps margin-top: auto
+	// to sit at the bottom of short pages.
+	> :not(section, header):has(+ .site-footer) {
+		margin-bottom: var(--spacing-xxl);
+	}
+}
+
+// <main> wrapper for block-built pages (page.php, single.php).
+// Adds the landmark and the skip-link target without changing the layout:
+// blocks stay full width, and loose content is constrained as it is in .global-container.
+.global-container > main.main--blocks {
+	display: flex;
+	flex-direction: column;
+	max-width: none;
+	padding: 0;
+	margin-bottom: 0;
+
+	> *:not(section, header, footer, article, iframe) {
+		max-width: var(--container-width-s);
+		margin-left: auto !important;
+		margin-right: auto !important;
+		width: 100%;
+		padding: 0 1.5rem;
+	}
+
+	> h1 {
+		margin: var(--spacing-xl) 0 var(--spacing-l) 0;
+	}
+
+	// Space loose content from the footer, as .global-container does.
+	> :not(section, header):last-child {
+		margin-bottom: var(--spacing-xxl);
+	}
+
+	// Block pages have no extra top margin on content blocks.
+	> .content-block {
+		margin-top: 0 !important;
+	}
+}
+
+.container {
+	margin: 0 auto;
+	padding: 0 1.5rem;
+	width: 100%;
+	max-width: var(--container-width);
+	@include mq(medium) {
+		padding: 0 2rem;
+	}
+}
+.container--l {
+	margin: 0 auto;
+	// padding: 0 1.25rem;
+	width: 100%;
+	max-width: var(--container-width-l);
+}
+.container--s {
+	margin: 0 auto;
+	max-width: var(--container-width-s);
+	padding: 0 1.5rem;
+	// \
+}
+
+main {
+	> .content-block {
+		margin-top: var(--spacing-xl);
+		@include mq(medium) {
+			margin-top: var(--spacing-xxl) !important;
+		}
+	}
+}

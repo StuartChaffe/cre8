@@ -1,0 +1,26 @@
+.social-links {
+	display: flex;
+	justify-content: center;
+}
+.social-links__link {
+	padding: 10px;
+	border-radius: 50px;
+	background-color: var(--color-secondary);
+	color: white;
+}
+
+.social-links__item {
+	margin: 0 1rem;
+	border-radius: 50px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border: 5px solid transparent;
+	&:hover {
+		background-color: var(--color-secondary);
+		border: 5px solid var(--color-primary);
+	}
+	a {
+		color: white;
+	}
+}
