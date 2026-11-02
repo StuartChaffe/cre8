@@ -1,1 +1,8 @@
-// Styles live in src/styles/components/_rich-copy.scss (shared with posts).
+// Content Block: rich text (.rich-copy) beside an optional facts panel (.facts). Both are shared
+// components in src/styles/components/_rich-copy.scss.
+.content-block--has-facts .content-block__inner {
+	display: grid;
+	gap: clamp(2.5rem, 6vw, 7rem);
+
+	@media (min-width: 900px) { grid-template-columns: minmax(0, 1.3fr) minmax(290px, .7fr); }
+}

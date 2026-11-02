@@ -2,7 +2,7 @@
 /**
  * Page Header: inner page hero. Supplies the page's only <h1>.
  */
-get_template_part( 'partials/inner-hero', null, array(
+get_template_part( 'partials/page-header', null, array(
 	'eyebrow'     => get_field( 'eyebrow' ),
 	'heading'     => get_field( 'heading' ) ?: get_the_title(),
 	'lede'        => get_field( 'lede' ),

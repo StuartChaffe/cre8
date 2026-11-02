@@ -2,7 +2,7 @@
 
 // On phones the accreditation strip scrolls sideways; step through it every few seconds.
 (function () {
-	const strip = document.querySelector('.trust-grid');
+	const strip = document.querySelector('.trust-strip__grid');
 	if (!strip || matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
 	let timer;

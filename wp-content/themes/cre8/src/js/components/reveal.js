@@ -1,9 +1,9 @@
 'use strict';
 
 // Fade sections in as they scroll into view. Skipped for reduced motion; the CSS only hides
-// .reveal elements once <html> has the has-reveal class, so nothing is hidden without JS.
+// .u-reveal elements once <html> has the has-reveal class, so nothing is hidden without JS.
 (function () {
-	const items = document.querySelectorAll('.reveal');
+	const items = document.querySelectorAll('.u-reveal');
 	if (!items.length || !('IntersectionObserver' in window) || matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
 	document.documentElement.classList.add('has-reveal');

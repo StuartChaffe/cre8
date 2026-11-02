@@ -1,6 +1,7 @@
-.sectors { background: var(--panel); }
+// Sector Grid: image cards, the first one large
+.sector-grid { background: var(--panel); }
 
-.sector-grid {
+.sector-grid__grid {
 	display: grid;
 	gap: 1rem;
 
@@ -8,7 +9,7 @@
 	@media (min-width: 900px) { grid-template-columns: 1.35fr .65fr .65fr; }
 }
 
-.sector-card {
+.sector-grid__card {
 	position: relative;
 	min-height: 390px;
 	display: flex;
@@ -16,7 +17,7 @@
 	overflow: hidden;
 	background: #08090b;
 
-	img {
+	.sector-grid__image {
 		position: absolute;
 		inset: 0;
 		width: 100%;
@@ -28,10 +29,10 @@
 
 	&::after { content: ""; position: absolute; inset: 0; background: linear-gradient(0deg, rgba(5, 6, 8, .97), transparent 65%); }
 
-	&:hover img { transform: scale(1.045); filter: grayscale(0) brightness(.7); }
+	&:hover .sector-grid__image { transform: scale(1.045); filter: grayscale(0) brightness(.7); }
 
 	// A card without an image gets a subtle outline instead
-	&:not(:has(img)) { border: 1px solid var(--line); background: radial-gradient(circle at 100% 0, rgba(236, 27, 105, .14), transparent 45%), #0b0d10; }
+	&--plain { border: 1px solid var(--line); background: radial-gradient(circle at 100% 0, rgba(236, 27, 105, .14), transparent 45%), #0b0d10; }
 
 	@media (min-width: 600px) and (max-width: 899px) {
 		&:first-child { grid-column: 1 / -1; }
@@ -42,12 +43,12 @@
 	}
 }
 
-.sector-copy {
+.sector-grid__content {
 	position: relative;
 	z-index: 1;
 	padding: 1.5rem;
 
-	span { color: var(--pink-light); font-size: .76rem; letter-spacing: .13em; text-transform: uppercase; }
-	h3 { margin: .4rem 0 .75rem; }
-	p { margin: 0; color: #c5c8ce; }
+	.sector-grid__label { color: var(--pink-light); font-size: .76rem; letter-spacing: .13em; text-transform: uppercase; }
+	.sector-grid__title { margin: .4rem 0 .75rem; }
+	.sector-grid__text { margin: 0; color: #c5c8ce; }
 }

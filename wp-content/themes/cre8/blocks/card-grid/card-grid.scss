@@ -1,58 +1,126 @@
-// Lined style: the homepage "What we do" grid
-.capabilities {
+// Card Grid: .card-grid--lined (homepage "What we do") or .card-grid--boxed
+.card-grid {
+	&__grid { display: grid; }
+
+	&__title { margin-bottom: .75rem; }
+	&__text { color: var(--muted); }
+}
+
+// Lined
+.card-grid--lined {
 	background: radial-gradient(circle at 100% 0, rgba(236, 27, 105, .11), transparent 27%), var(--ink);
-}
 
-.cap-grid {
-	display: grid;
-	border-top: 1px solid var(--line);
+	.card-grid__grid {
+		border-top: 1px solid var(--line);
 
-	@media (min-width: 600px) { grid-template-columns: repeat(2, 1fr); }
-	@media (min-width: 900px) { grid-template-columns: repeat(4, 1fr); }
-}
-
-.cap-card {
-	position: relative;
-	min-height: 260px;
-	padding: 2rem 1.25rem;
-	overflow: hidden;
-	border-bottom: 1px solid var(--line);
-	transition: background .3s;
-
-	&::after {
-		content: "";
-		position: absolute;
-		right: -35px;
-		bottom: -45px;
-		width: 120px;
-		height: 120px;
-		border: 1px solid var(--pink-glow);
-		transform: rotate(45deg);
-		transition: .35s;
+		@media (min-width: 600px) { grid-template-columns: repeat(2, 1fr); }
+		@media (min-width: 900px) { grid-template-columns: repeat(4, 1fr); }
 	}
 
-	&:hover { background: var(--panel); }
-	&:hover::after { right: -20px; bottom: -25px; }
+	.card-grid__card {
+		position: relative;
+		min-height: 260px;
+		padding: 2rem 1.25rem;
+		overflow: hidden;
+		border-bottom: 1px solid var(--line);
+		transition: background .3s;
 
-	h3 { margin-bottom: .75rem; }
-	p { max-width: 360px; color: var(--muted); }
+		&::after {
+			content: "";
+			position: absolute;
+			right: -35px;
+			bottom: -45px;
+			width: 120px;
+			height: 120px;
+			border: 1px solid var(--pink-glow);
+			transform: rotate(45deg);
+			transition: .35s;
+		}
 
-	@media (min-width: 600px) and (max-width: 899px) {
-		&:nth-child(odd) { border-right: 1px solid var(--line); }
+		&:hover { background: var(--panel); }
+		&:hover::after { right: -20px; bottom: -25px; }
+
+		@media (min-width: 600px) and (max-width: 899px) {
+			&:nth-child(odd) { border-right: 1px solid var(--line); }
+		}
+
+		@media (min-width: 900px) {
+			min-height: 330px;
+			padding: 2.2rem 1.5rem;
+			border-right: 1px solid var(--line);
+			&:nth-child(4n) { border-right: 0; }
+		}
 	}
 
-	@media (min-width: 900px) {
-		min-height: 330px;
-		padding: 2.2rem 1.5rem;
-		border-right: 1px solid var(--line);
-		&:nth-child(4n) { border-right: 0; }
+	.card-grid__label {
+		display: block;
+		margin-bottom: 3.5rem;
+		color: var(--pink-light);
+		font-size: .8rem;
+		letter-spacing: .14em;
+	}
+
+	.card-grid__text { max-width: 360px; }
+}
+
+// Boxed
+.card-grid--boxed {
+	.card-grid__grid {
+		gap: 1rem;
+		align-items: stretch;
+
+		@media (min-width: 600px) { grid-template-columns: repeat(2, 1fr); }
+		@media (min-width: 900px) { grid-template-columns: repeat(4, 1fr); }
+	}
+
+	.card-grid__card {
+		min-height: 300px;
+		height: 100%;
+		display: flex;
+		flex-direction: column;
+		padding: 1.6rem;
+		border: 1px solid var(--line);
+		background: #0c0e12;
+		transition: border-color .25s, background .25s;
+
+		@at-root a#{&}:hover { border-color: var(--pink); background: var(--panel-2); }
+	}
+
+	.card-grid__title { min-height: 2.7em; }
+	.card-grid__link { align-self: flex-start; margin-top: auto; }
+
+	.card-grid__label {
+		margin-bottom: auto;
+		padding-bottom: 1.5rem;
+		color: var(--pink-light);
+		font-size: .72rem;
+		letter-spacing: .13em;
 	}
 }
 
-.cap-no {
-	display: block;
-	margin-bottom: 3.5rem;
-	color: var(--pink-light);
-	font-size: .8rem;
-	letter-spacing: .14em;
+.card-grid__logo {
+	width: auto;
+	max-width: 185px;
+	height: 68px;
+	margin: 1.2rem 0 1.5rem;
+	object-fit: contain;
+	object-position: left center;
+}
+
+.card-grid__mark {
+	width: fit-content;
+	min-height: 68px;
+	align-items: flex-start;
+	margin: 1.2rem 0 1.5rem;
+	font-size: 1.35rem;
+}
+
+.section--light {
+	.card-grid__card { border-color: #d2d5da; background: #fff; color: var(--light-text); }
+	.card-grid__label { color: var(--pink-dark); }
+	.card-grid__title { color: var(--light-text); }
+	.card-grid__text { color: #555c67; }
+	.text-mark { color: #171a20; }
+	.text-mark__number { color: var(--pink-dark); }
+	.text-mark__caption { color: #555c67; }
 }

@@ -1,15 +1,16 @@
-.trust {
+// Trust Strip: accreditation logos
+.trust-strip {
 	border-block: 1px solid #d9dce2;
 	background: #f2f3f5;
 	color: #12151a;
 
-	.text-mark { height: 58px; color: #15181d; }
-	.text-mark b { color: var(--pink-dark); }
-	.text-mark small { color: var(--light-muted); }
+	&__mark { height: 58px; color: #15181d; }
+	&__mark .text-mark__number { color: var(--pink-dark); }
+	&__mark .text-mark__caption { color: var(--light-muted); }
 }
 
 // Swipes sideways on phones (and steps on its own, see trust-strip.js); a row of five from 700px.
-.trust-grid {
+.trust-strip__grid {
 	display: flex;
 	overflow-x: auto;
 	scroll-snap-type: x mandatory;
@@ -25,7 +26,7 @@
 	}
 }
 
-.trust-item {
+.trust-strip__item {
 	min-height: 150px;
 	flex: 0 0 82%;
 	display: flex;
@@ -40,10 +41,10 @@
 
 	&:last-child { border-right: 0; }
 
-	strong { color: #111319; font-size: .92rem; font-weight: 600; letter-spacing: -.02em; line-height: 1.1; }
-	span { color: var(--light-muted); font-size: .7rem; letter-spacing: .04em; }
+	.trust-strip__title { color: #111319; font-size: .92rem; font-weight: 600; letter-spacing: -.02em; line-height: 1.1; }
+	.trust-strip__text { color: var(--light-muted); font-size: .7rem; letter-spacing: .04em; }
 
 	@media (min-width: 900px) { min-height: 165px; }
 }
 
-.trust-logo { width: auto; max-width: 150px; height: 62px; object-fit: contain; }
+.trust-strip__logo { width: auto; max-width: 150px; height: 62px; object-fit: contain; }

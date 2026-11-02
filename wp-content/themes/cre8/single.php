@@ -3,7 +3,7 @@
 <main id="content">
 <?php while ( have_posts() ) : the_post(); ?>
 	<?php
-	get_template_part( 'partials/inner-hero', null, array(
+	get_template_part( 'partials/page-header', null, array(
 		'eyebrow' => get_the_date(),
 		'heading' => get_the_title(),
 		'lede'    => has_excerpt() ? get_the_excerpt() : '',
@@ -11,8 +11,8 @@
 	) );
 	?>
 	<section class="section">
-		<div class="wrap">
-			<article class="rich-copy cms-article">
+		<div class="container">
+			<article class="rich-copy rich-copy--article">
 				<?php the_content(); ?>
 			</article>
 		</div>

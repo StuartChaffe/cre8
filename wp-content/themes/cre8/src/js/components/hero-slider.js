@@ -6,9 +6,9 @@
 	const hero = document.querySelector('[data-hero-slider]');
 	if (!hero) return;
 
-	const slides = [...hero.querySelectorAll('.hero-slide')];
-	const dots = [...hero.querySelectorAll('.slider-dot')];
-	const toggle = hero.querySelector('.slider-toggle');
+	const slides = [...hero.querySelectorAll('.hero-slider__slide')];
+	const dots = [...hero.querySelectorAll('.hero-slider__dot')];
+	const toggle = hero.querySelector('.hero-slider__toggle');
 	const title = hero.querySelector('[data-slide-title]');
 	const summary = hero.querySelector('[data-slide-summary]');
 	const link = hero.querySelector('[data-slide-link]');
@@ -43,8 +43,8 @@
 	const setToggle = () => {
 		if (!toggle) return;
 		toggle.innerHTML = paused
-			? '<span class="play-icon" aria-hidden="true"></span>'
-			: '<span class="pause-icon" aria-hidden="true"></span>';
+			? '<span class="hero-slider__icon hero-slider__icon--play" aria-hidden="true"></span>'
+			: '<span class="hero-slider__icon hero-slider__icon--pause" aria-hidden="true"></span>';
 		toggle.setAttribute('aria-label', paused ? 'Play slideshow' : 'Pause slideshow');
 	};
 

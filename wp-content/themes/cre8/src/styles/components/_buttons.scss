@@ -1,4 +1,4 @@
-.button {
+.btn {
 	min-height: 50px;
 	display: inline-flex;
 	align-items: center;
@@ -17,7 +17,7 @@
 	&:hover { transform: translateY(-2px); background: var(--pink-light); }
 }
 
-.button--ghost {
+.btn--ghost {
 	border-color: rgba(255, 255, 255, .45);
 	background: rgba(8, 9, 11, .38);
 	backdrop-filter: blur(8px);

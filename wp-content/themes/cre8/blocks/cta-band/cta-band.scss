@@ -1,3 +1,4 @@
+// CTA Band: pink call to action
 .cta-band {
 	position: relative;
 	overflow: hidden;
@@ -14,14 +15,14 @@
 		pointer-events: none;
 	}
 
-	h2 { max-width: 860px; }
-	p { max-width: 700px; margin: 1rem 0 0; }
+	&__title { max-width: 860px; }
+	&__text { max-width: 700px; margin: 1rem 0 0; }
 
 	.eyebrow { color: #fff; }
 	.eyebrow::before { background: #fff; }
 
-	.button { background: #08090b; }
-	.button:hover { background: #fff; color: #08090b; }
+	&__btn { background: #08090b; }
+	&__btn:hover { background: #fff; color: #08090b; }
 }
 
 .cta-band__inner {

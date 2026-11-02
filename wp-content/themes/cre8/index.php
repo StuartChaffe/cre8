@@ -8,7 +8,7 @@ $blog_page = (int) get_option( 'page_for_posts' );
 
 <main id="content">
 	<?php
-	get_template_part( 'partials/inner-hero', null, array(
+	get_template_part( 'partials/page-header', null, array(
 		'eyebrow' => is_archive() ? '' : 'News & insight',
 		'heading' => is_archive() ? wp_strip_all_tags( get_the_archive_title() ) : ( $blog_page ? get_the_title( $blog_page ) : __( 'Blog', 'cre8' ) ),
 		'lede'    => is_archive() ? wp_strip_all_tags( get_the_archive_description() ) : ( $blog_page ? get_the_excerpt( $blog_page ) : '' ),
@@ -16,9 +16,9 @@ $blog_page = (int) get_option( 'page_for_posts' );
 	) );
 	?>
 	<section class="section">
-		<div class="wrap">
+		<div class="container">
 			<?php if ( have_posts() ) : ?>
-			<div class="blog-grid">
+			<div class="post-grid">
 				<?php while ( have_posts() ) : the_post(); ?>
 					<?php get_template_part( 'partials/post-card' ); ?>
 				<?php endwhile; ?>

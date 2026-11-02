@@ -34,7 +34,7 @@
 
 	// Radio and checkbox choices as large tiles
 	.gfield_radio, .gfield_checkbox { display: grid; gap: .75rem; }
-	.answer-grid .gfield_radio { @media (min-width: 600px) { grid-template-columns: repeat(2, 1fr); } }
+	.project-form__answers .gfield_radio { @media (min-width: 600px) { grid-template-columns: repeat(2, 1fr); } }
 
 	.gchoice, .ginput_container_consent { position: relative; }
 
@@ -69,8 +69,10 @@
 	.gf_progressbar { height: 3px; background: rgba(255, 255, 255, .12); }
 	.gf_progressbar_percentage { height: 100%; background: var(--pink) !important; transition: width .35s; span { display: none; } }
 
-	// Buttons: Gravity Forms gives Continue and Send the theme's .button class
+	// Buttons: Gravity Forms outputs its own button markup, so they take the theme's .btn styles here
 	.gform_page_footer, .gform_footer { display: flex; flex-wrap: wrap; align-items: center; gap: 1rem; margin-top: 2rem; }
+
+	.gform_previous_button, .gform_next_button, .gform_button { @extend .btn; }
 
 	.gform_previous_button {
 		min-height: 50px;

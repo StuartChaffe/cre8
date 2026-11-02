@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## 2026-11-02 (BEM class names)
+
+### Changed
+- All class names follow BEM, matching the kestrels conventions: each block is named after its ACF block (`.card-grid__card`, `.hero-slider__dot`), with `.container`, `.btn`, `is-` states and `u-` utilities. Elements are styled by class rather than by tag
+- Layout parts renamed: `.site-header__*`, `.primary-nav__*`, `.search-form`, `.site-footer__*`, `.page-header` (was `.inner-hero`, and `partials/page-header.php`), `.post-card`, `.facts`
+- The "Discuss a project" form's step headings and field classes use `.project-form__*`; Gravity Forms buttons `@extend .btn`
+- `Cre8_Flat_Walker` takes a class for its links
+
+### Fixed
+- Tag selectors that leaked: the CTA eyebrow had the wrong margins, the Split Media eyebrow was grey instead of pink, and the PRINCE2 mark in the trust strip was shrunk to small grey text
+
 ## 2026-10-30 (product page)
 
 ### Added

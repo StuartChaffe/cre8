@@ -1,5 +1,5 @@
 // Block-built pages: if the first block is not a hero, keep it clear of the fixed header.
-.main--blocks > :first-child:not(.hero):not(.inner-hero) {
+.main--blocks > :first-child:not(.hero-slider):not(.page-header) {
 	padding-top: calc(var(--header) + clamp(3rem, 6vw, 5rem));
 }
 

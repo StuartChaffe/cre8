@@ -5,9 +5,9 @@
 	const header = document.querySelector('.site-header');
 	if (!header) return;
 
-	const toggle = header.querySelector('.menu-toggle');
-	const menu = header.querySelector('.nav-links');
-	const groups = [...header.querySelectorAll('.nav-group')];
+	const toggle = header.querySelector('.site-header__menu-btn');
+	const menu = header.querySelector('.site-header__nav');
+	const groups = [...header.querySelectorAll('.primary-nav__group')];
 	const desktop = matchMedia('(min-width: 900px)');
 
 	const closeGroups = except => groups.forEach(group => { if (group !== except) group.open = false; });
@@ -17,7 +17,7 @@
 		toggle.setAttribute('aria-expanded', String(open));
 		toggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
 		menu.classList.toggle('is-open', open);
-		document.body.classList.toggle('menu-open', open);
+		document.body.classList.toggle('nav-open', open);
 	};
 
 	if (toggle && menu) {
@@ -29,7 +29,7 @@
 	groups.forEach(group => group.addEventListener('toggle', () => { if (group.open) closeGroups(group); }));
 
 	document.addEventListener('click', event => {
-		if (!event.target.closest('.nav-group')) closeGroups();
+		if (!event.target.closest('.primary-nav__group')) closeGroups();
 	});
 
 	document.addEventListener('keydown', event => {
@@ -37,7 +37,7 @@
 		const open = groups.find(group => group.open);
 		setMenu(false);
 		closeGroups();
-		if (open) open.querySelector('summary').focus();
+		if (open) open.querySelector('.primary-nav__toggle').focus();
 	});
 
 	const updateHeader = () => header.classList.toggle('is-scrolled', window.scrollY > 24);

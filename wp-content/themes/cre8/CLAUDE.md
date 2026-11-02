@@ -35,11 +35,11 @@ src/js/editor.js             block editor script
 src/styles/styles.scss       front-end styles
 src/styles/editor-style.scss block editor styles
 src/styles/base/             fonts, design tokens (:root custom properties), base, typography
-src/styles/components/       buttons, sections, cards, rich copy, posts
-src/styles/layout/           header, footer, inner hero, project form
+src/styles/components/       buttons, sections, rich copy and facts, posts and search
+src/styles/layout/           header, footer, page header, project form, Gravity Forms
 lib/                         PHP modules, loaded by functions.php
 blocks/                      ACF blocks, one folder each (block.json, template, scss, acf-json)
-partials/                    header, footer, inner hero, post card
+partials/                    header, footer, page header, post card
 tpl-project.php              "Discuss a project" full-screen form (page template)
 assets/                      compiled output (git-ignored)
 ```
@@ -48,7 +48,7 @@ Blocks: `hero-slider`, `trust-strip`, `page-header`, `card-grid` (lined or boxed
 
 The design tokens are the CSS custom properties in `src/styles/base/_tokens.scss` (`--ink`, `--panel`, `--pink`, `--max` and so on). Use them rather than hard-coded colours. Inter is the only font.
 
-Sections fade in on scroll when they have the `reveal` class. The CSS only hides them once `reveal.js` adds `has-reveal` to `<html>`, so nothing is hidden in the editor or without JavaScript.
+Sections fade in on scroll when they have the `u-reveal` class. The CSS only hides them once `reveal.js` adds `has-reveal` to `<html>`, so nothing is hidden in the editor or without JavaScript.
 
 ### Menus
 
@@ -71,6 +71,12 @@ The pages were imported once from the prototype with a one-off importer, since r
 ## Conventions
 
 - Function prefix `cre8_`, text domain `cre8`.
+- Class names are BEM (https://css-tricks.com/bem-101/), following Stu's kestrels conventions:
+  - Each ACF block is a BEM block named after its slug: `.card-grid`, `.card-grid__card`, `.card-grid--boxed`. Layout parts are blocks too: `.site-header`, `.primary-nav`, `.site-footer`, `.page-header`, `.search-form`.
+  - Shared components: `.section` (`--panel`, `--light`), `.section-head`, `.container`, `.btn` (`--ghost`), `.text-link`, `.eyebrow`, `.lede`, `.lead`, `.text-mark`, `.rich-copy`, `.facts`, `.post-card`, `.post-grid`, `.breadcrumbs`, `.empty-state`.
+  - States use `is-` (`is-active`, `is-open`, `is-scrolled`, `is-visible`); page-level states sit on `<html>`/`<body>` (`has-reveal`, `nav-open`, `js`). Utilities use `u-` (`u-reveal`, `u-highlight`); `.sr-only` stays as is.
+  - Style elements by their class, not by tag (`.card-grid__title`, not `.card-grid h3`). Tag selectors are only for markup we don't write: rich text from the editor (inside `.rich-copy`, `__text` wrappers), WordPress pagination and Gravity Forms (`gform_*`, whose buttons `@extend .btn`).
+  - Mixing a shared component onto an element is fine: `<p class="section-head__intro lede">`, `<a class="cta-band__btn btn">`.
 - Indentation is tabs, with 4 spaces for JSON (see `.editorconfig`).
 - Styles follow ITCSS order (settings, variables, utilities, base, layout, components, blocks). Block SCSS is picked up automatically by the `@import "../../blocks/*/*.scss"` glob in both `styles.scss` and `editor-style.scss`.
 - Assets are enqueued through `vite_asset()` and `vite_asset_css()`, which read `assets/.vite/manifest.json`.
@@ -85,7 +91,7 @@ The pages were imported once from the prototype with a one-off importer, since r
 - Every template wraps its content in `<main id="content">`; the skip link in `header.php` points to `#content`.
 - The header is fixed. Pages should start with a Page Header or Hero Slider block; if the first block is something else, `.main--blocks` adds top padding so it clears the header.
 - Each page needs exactly one `<h1>`, which comes from the Page Header or Hero Slider block. `page.php` adds none of its own.
-- Posts, the blog page, search and 404 use `partials/inner-hero.php` directly.
+- Posts, the blog page, search and 404 use `partials/page-header.php` directly (the Page Header block uses it too).
 
 ## Theme Options
 

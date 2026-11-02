@@ -6,19 +6,18 @@
 
 @import "components/buttons";
 @import "components/sections";
-@import "components/cards";
 @import "components/rich-copy";
 @import "components/posts";
 
-@import "layout/inner-hero";
+@import "layout/page-header";
 
 @import "../../blocks/*/*.scss";
 
 @import "utilities/helpers";
 
 // The editor has no fixed header, so heroes do not need room for one.
-.hero, .inner-hero { padding-top: 4rem; }
-.hero, .hero-copy-panel { min-height: 560px; }
+.hero-slider, .page-header { padding-top: 4rem; }
+.hero-slider, .hero-slider__panel { min-height: 560px; }
 .block-editor-block-list__layout .wp-block { max-width: none; margin-block: 0; }
 
 // Block previews are for looking at, not using: links, buttons and slider controls ignore clicks,

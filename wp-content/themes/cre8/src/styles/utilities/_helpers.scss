@@ -9,3 +9,6 @@
 	white-space: nowrap !important;
 	border: 0 !important;
 }
+
+// Highlighted word in a heading (*word* in a heading field)
+.u-highlight { color: var(--pink-light); font-style: normal; }

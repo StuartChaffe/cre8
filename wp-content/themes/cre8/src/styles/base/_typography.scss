@@ -46,9 +46,9 @@ p { margin: 0 0 1.3rem; }
 	letter-spacing: -.04em;
 	text-align: center;
 
-	b { color: var(--pink-light); }
+	&__number { color: var(--pink-light); }
 
-	small {
+	&__caption {
 		margin-top: .35rem;
 		color: var(--muted);
 		font-size: .62rem;

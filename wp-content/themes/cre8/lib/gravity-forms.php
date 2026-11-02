@@ -44,7 +44,7 @@ add_action( 'admin_init', 'cre8_project_form_id' );
  */
 function _cre8_step_intro( $number, $heading, $text, $tag = 'h2' ) {
 	return sprintf(
-		'<span class="question-no">%s /</span><%s class="form-step__title">%s</%s><p class="form-step__intro">%s</p>',
+		'<span class="project-form__step-number">%s /</span><%s class="project-form__title">%s</%s><p class="project-form__intro">%s</p>',
 		$number, $tag, $heading, $tag, $text
 	);
 }
@@ -61,21 +61,21 @@ function cre8_project_form_definition() {
 	$needs = array( 'Electrical system design', 'EMC and filters', 'Vehicle integration', 'RF communications', 'Testing and verification', 'Something else' );
 
 	$fields = array(
-		$field( 'html', array( 'content' => _cre8_step_intro( '01', 'What can we help you achieve?', 'Select the area closest to your requirement. You can add detail in the next step.', 'h1' ), 'cssClass' => 'form-step-intro' ) ),
-		$field( 'radio', array( 'label' => 'Area of work', 'labelPlacement' => 'hidden_label', 'isRequired' => true, 'cssClass' => 'answer-grid',
+		$field( 'html', array( 'content' => _cre8_step_intro( '01', 'What can we help you achieve?', 'Select the area closest to your requirement. You can add detail in the next step.', 'h1' ), 'cssClass' => 'project-form__step' ) ),
+		$field( 'radio', array( 'label' => 'Area of work', 'labelPlacement' => 'hidden_label', 'isRequired' => true, 'cssClass' => 'project-form__answers',
 			'choices' => array_map( function ( $n ) { return array( 'text' => $n, 'value' => $n ); }, $needs ) ) ),
 		$break(),
-		$field( 'html', array( 'content' => _cre8_step_intro( '02', 'Tell us about the requirement.', 'Share what the system must do, the platform or environment, and any programme constraints you already know.' ), 'cssClass' => 'form-step-intro' ) ),
+		$field( 'html', array( 'content' => _cre8_step_intro( '02', 'Tell us about the requirement.', 'Share what the system must do, the platform or environment, and any programme constraints you already know.' ), 'cssClass' => 'project-form__step' ) ),
 		$field( 'textarea', array( 'label' => 'Project overview', 'isRequired' => true, 'placeholder' => 'Type your answer here...' ) ),
 		$break(),
-		$field( 'html', array( 'content' => _cre8_step_intro( '03', 'Who should we speak with?', 'Your details will only be used to respond to this enquiry.' ), 'cssClass' => 'form-step-intro' ) ),
+		$field( 'html', array( 'content' => _cre8_step_intro( '03', 'Who should we speak with?', 'Your details will only be used to respond to this enquiry.' ), 'cssClass' => 'project-form__step' ) ),
 		$field( 'text', array( 'label' => 'Your name', 'isRequired' => true, 'placeholder' => 'Jane Smith', 'autocompleteAttribute' => 'name', 'enableAutocomplete' => true ) ),
 		$field( 'email', array( 'label' => 'Work email', 'isRequired' => true, 'placeholder' => 'jane@company.com', 'autocompleteAttribute' => 'email', 'enableAutocomplete' => true ) ),
 		$break(),
-		$field( 'html', array( 'content' => _cre8_step_intro( '04', 'How can we contact you?', 'A telephone number helps an engineer respond efficiently. It is optional.' ), 'cssClass' => 'form-step-intro' ) ),
+		$field( 'html', array( 'content' => _cre8_step_intro( '04', 'How can we contact you?', 'A telephone number helps an engineer respond efficiently. It is optional.' ), 'cssClass' => 'project-form__step' ) ),
 		$field( 'phone', array( 'label' => 'Telephone number', 'phoneFormat' => 'international', 'placeholder' => '01162 000000', 'autocompleteAttribute' => 'tel', 'enableAutocomplete' => true ) ),
 		$break( 'Review enquiry' ),
-		$field( 'html', array( 'content' => _cre8_step_intro( '05', 'Ready to start the conversation?', 'Submit your requirement and a member of the engineering team will respond. For urgent enquiries, call {cre8_phone}.' ), 'cssClass' => 'form-step-intro' ) ),
+		$field( 'html', array( 'content' => _cre8_step_intro( '05', 'Ready to start the conversation?', 'Submit your requirement and a member of the engineering team will respond. For urgent enquiries, call {cre8_phone}.' ), 'cssClass' => 'project-form__step' ) ),
 		$field( 'consent', array( 'label' => 'Consent', 'labelPlacement' => 'hidden_label', 'isRequired' => true, 'checkboxLabel' => 'I agree that Cre8 Associates may use these details to respond to my enquiry.', 'description' => '',
 			'inputs' => array( array( 'id' => '15.1', 'label' => 'Consent' ), array( 'id' => '15.2', 'label' => 'Text', 'isHidden' => true ), array( 'id' => '15.3', 'label' => 'Description', 'isHidden' => true ) ),
 			'choices' => array( array( 'text' => 'Checked', 'value' => '1' ) ) ) ),
@@ -103,7 +103,7 @@ function cre8_project_form_definition() {
 				'name'      => 'Thank you',
 				'isDefault' => true,
 				'type'      => 'message',
-				'message'   => '<span class="question-no">Thank you</span><h1 class="form-step__title">Your enquiry is on its way.</h1><p class="form-step__intro">A member of the engineering team will be in touch. For anything urgent, call {cre8_phone}.</p>',
+				'message'   => '<span class="project-form__step-number">Thank you</span><h1 class="project-form__title">Your enquiry is on its way.</h1><p class="project-form__intro">A member of the engineering team will be in touch. For anything urgent, call {cre8_phone}.</p>',
 			),
 		),
 		'notifications'        => array(

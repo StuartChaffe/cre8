@@ -1,4 +1,5 @@
-.blog-grid {
+// Post cards (blog page and Latest Posts block)
+.post-grid {
 	display: grid;
 	gap: 1rem;
 
@@ -6,27 +7,28 @@
 	@media (min-width: 900px) { grid-template-columns: repeat(3, 1fr); }
 }
 
-.blog-card {
+.post-card {
 	overflow: hidden;
 	border: 1px solid var(--line);
 	background: var(--panel);
 
-	img { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; filter: saturate(.8) contrast(1.04); }
-	h3 { margin: .7rem 0 1rem; }
-	h3 a:hover { color: var(--pink-light); }
-	p { color: var(--muted); }
+	&__image { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; filter: saturate(.8) contrast(1.04); }
+	&__content { padding: 1.5rem; }
+
+	&__date {
+		display: block;
+		color: var(--pink-light);
+		font-size: .72rem;
+		letter-spacing: .1em;
+		text-transform: uppercase;
+	}
+
+	&__title { margin: .7rem 0 1rem; }
+	&__title-link:hover { color: var(--pink-light); }
+	&__excerpt { color: var(--muted); }
 }
 
-.blog-card__copy { padding: 1.5rem; }
-
-.blog-card__meta {
-	display: block;
-	color: var(--pink-light);
-	font-size: .72rem;
-	letter-spacing: .1em;
-	text-transform: uppercase;
-}
-
+// WordPress's own pagination markup
 .pagination {
 	margin-top: 3rem;
 
@@ -36,23 +38,22 @@
 }
 
 // Search results page
-.search-layout { max-width: 900px; }
+.search-page {
+	max-width: 900px;
 
-.search-page-form {
-	label { display: block; margin-bottom: .65rem; }
-	> div { display: flex; gap: .75rem; }
-	input { flex: 1; padding: 1rem; border: 1px solid var(--line); border-radius: .45rem; background: var(--panel); }
+	&__label { display: block; margin-bottom: .65rem; }
+	&__row { display: flex; gap: .75rem; }
+	&__input { flex: 1; padding: 1rem; border: 1px solid var(--line); border-radius: .45rem; background: var(--panel); }
+	&__results { display: grid; gap: 1rem; margin-top: 2rem; }
 
-	@media (max-width: 750px) { > div { flex-direction: column; } }
+	@media (max-width: 750px) { &__row { flex-direction: column; } }
 }
-
-.search-results { display: grid; gap: 1rem; margin-top: 2rem; }
 
 .search-result {
 	padding: 1.4rem 0;
 	border-top: 1px solid var(--line);
 
-	h2 { margin: 0 0 .5rem; font-size: 1.25rem; letter-spacing: -.02em; }
-	h2 a:hover { color: var(--pink-light); }
-	p { margin: 0 0 .75rem; color: var(--muted); }
+	&__title { margin: 0 0 .5rem; font-size: 1.25rem; letter-spacing: -.02em; }
+	&__link:hover { color: var(--pink-light); }
+	&__excerpt { margin: 0 0 .75rem; color: var(--muted); }
 }

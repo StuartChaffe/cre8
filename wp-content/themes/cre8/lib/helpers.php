@@ -180,17 +180,17 @@ function cre8_image( $image, $size = 'large', $attr = array() ) {
 /**
  * Eyebrow, heading and intro used at the top of most sections.
  */
-function cre8_section_head( $eyebrow, $heading, $intro = '', $intro_class = 'lede' ) {
+function cre8_section_head( $eyebrow, $heading, $intro = '' ) {
 	if ( ! $eyebrow && ! $heading && ! $intro ) {
 		return;
 	}
 	?>
-	<div class="section-head reveal">
-		<div>
+	<div class="section-head u-reveal">
+		<div class="section-head__text">
 			<?php if ( $eyebrow ) : ?><p class="eyebrow"><?php echo esc_html( $eyebrow ); ?></p><?php endif; ?>
-			<?php if ( $heading ) : ?><h2><?php echo esc_html( $heading ); ?></h2><?php endif; ?>
+			<?php if ( $heading ) : ?><h2 class="section-head__title"><?php echo esc_html( $heading ); ?></h2><?php endif; ?>
 		</div>
-		<?php if ( $intro ) : ?><p class="<?php echo esc_attr( $intro_class ); ?>"><?php echo esc_html( $intro ); ?></p><?php endif; ?>
+		<?php if ( $intro ) : ?><p class="section-head__intro lede"><?php echo esc_html( $intro ); ?></p><?php endif; ?>
 	</div>
 	<?php
 }
@@ -209,15 +209,15 @@ function cre8_background_class( $background ) {
 /**
  * Text logo such as PRINCE2, with the trailing number picked out in pink.
  */
-function cre8_text_mark( $mark, $class = 'text-mark', $small = '' ) {
+function cre8_text_mark( $mark, $class = '', $caption = '' ) {
 	if ( ! $mark ) {
 		return '';
 	}
-	$html = '<span>' . preg_replace( '/(\d+)$/', '<b>$1</b>', esc_html( $mark ) ) . '</span>';
-	if ( $small ) {
-		$html .= '<small>' . esc_html( $small ) . '</small>';
+	$html = '<span class="text-mark__name">' . preg_replace( '/(\d+)$/', '<b class="text-mark__number">$1</b>', esc_html( $mark ) ) . '</span>';
+	if ( $caption ) {
+		$html .= '<small class="text-mark__caption">' . esc_html( $caption ) . '</small>';
 	}
-	return '<div class="' . esc_attr( $class ) . '" aria-label="' . esc_attr( $mark ) . '">' . $html . '</div>';
+	return '<div class="' . esc_attr( trim( 'text-mark ' . $class ) ) . '" aria-label="' . esc_attr( $mark ) . '">' . $html . '</div>';
 }
 
 
@@ -225,8 +225,8 @@ function cre8_text_mark( $mark, $class = 'text-mark', $small = '' ) {
 /**
  * Heading text where *word* is shown highlighted.
  */
-function cre8_highlight( $text ) {
-	return preg_replace( '/\*([^*]+)\*/', '<em>$1</em>', esc_html( $text ) );
+function cre8_highlight( $text, $class = 'u-highlight' ) {
+	return preg_replace( '/\*([^*]+)\*/', '<em class="' . esc_attr( $class ) . '">$1</em>', esc_html( $text ) );
 }
 
 
@@ -238,18 +238,18 @@ function cre8_breadcrumbs() {
 	if ( is_front_page() ) {
 		return;
 	}
-	$items = array( '<a href="' . esc_url( home_url( '/' ) ) . '">Home</a>' );
+	$items = array( '<a class="breadcrumbs__link" href="' . esc_url( home_url( '/' ) ) . '">Home</a>' );
 
 	if ( is_singular( 'post' ) || is_home() || is_archive() ) {
 		$blog = (int) get_option( 'page_for_posts' );
 		if ( $blog && ! is_home() ) {
-			$items[] = '<a href="' . esc_url( get_permalink( $blog ) ) . '">' . esc_html( get_the_title( $blog ) ) . '</a>';
+			$items[] = '<a class="breadcrumbs__link" href="' . esc_url( get_permalink( $blog ) ) . '">' . esc_html( get_the_title( $blog ) ) . '</a>';
 		}
 	}
 
 	if ( is_page() ) {
 		foreach ( array_reverse( get_post_ancestors( get_the_ID() ) ) as $ancestor ) {
-			$items[] = '<a href="' . esc_url( get_permalink( $ancestor ) ) . '">' . esc_html( get_the_title( $ancestor ) ) . '</a>';
+			$items[] = '<a class="breadcrumbs__link" href="' . esc_url( get_permalink( $ancestor ) ) . '">' . esc_html( get_the_title( $ancestor ) ) . '</a>';
 		}
 	}
 
@@ -265,5 +265,8 @@ function cre8_breadcrumbs() {
 		$items[] = esc_html( get_the_title() );
 	}
 
-	echo '<nav class="breadcrumbs" aria-label="Breadcrumb">' . implode( '<span aria-hidden="true">/</span>', $items ) . '</nav>';
+	$current = array_pop( $items );
+	$items[] = '<span class="breadcrumbs__current" aria-current="page">' . $current . '</span>';
+
+	echo '<nav class="breadcrumbs" aria-label="Breadcrumb">' . implode( '<span class="breadcrumbs__sep" aria-hidden="true">/</span>', $items ) . '</nav>';
 }

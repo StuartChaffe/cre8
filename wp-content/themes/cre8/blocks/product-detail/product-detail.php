@@ -14,24 +14,24 @@ $note     = get_field( 'note' );
 $anchor   = ! empty( $block['anchor'] ) ? ' id="' . esc_attr( $block['anchor'] ) . '"' : '';
 $first    = $images[0] ?? null;
 ?>
-<section class="section"<?php echo $anchor; ?>>
-	<div class="wrap product-detail-grid">
+<section class="section product-detail"<?php echo $anchor; ?>>
+	<div class="product-detail__inner container">
 		<?php if ( $first ) : ?>
-		<div class="product-gallery" data-product-gallery>
+		<div class="product-detail__gallery product-gallery" data-product-gallery>
 			<div class="product-gallery__stage">
-				<?php echo wp_get_attachment_image( $first['ID'], 'large', false, array( 'data-gallery-stage' => '', 'sizes' => '(min-width: 900px) 55vw, 100vw' ) ); ?>
+				<?php echo wp_get_attachment_image( $first['ID'], 'large', false, array( 'class' => 'product-gallery__image', 'data-gallery-stage' => '', 'sizes' => '(min-width: 900px) 55vw, 100vw' ) ); ?>
 			</div>
 			<?php if ( count( $images ) > 1 ) : ?>
 			<div class="product-gallery__thumbs" role="group" aria-label="Product images">
 				<?php foreach ( $images as $i => $image ) :
 					$large = wp_get_attachment_image_src( $image['ID'], 'large' );
 					?>
-				<button type="button"<?php echo 0 === $i ? ' class="is-active" aria-pressed="true"' : ' aria-pressed="false"'; ?>
+				<button class="product-gallery__thumb<?php echo 0 === $i ? ' is-active' : ''; ?>" type="button" aria-pressed="<?php echo 0 === $i ? 'true' : 'false'; ?>"
 					data-gallery-image="<?php echo esc_url( $large[0] ?? '' ); ?>"
 					data-gallery-srcset="<?php echo esc_attr( wp_get_attachment_image_srcset( $image['ID'], 'large' ) ?: '' ); ?>"
 					data-gallery-alt="<?php echo esc_attr( $image['alt'] ); ?>"
 					aria-label="<?php echo esc_attr( sprintf( 'Show image %d of %d', $i + 1, count( $images ) ) ); ?>">
-					<?php echo wp_get_attachment_image( $image['ID'], 'medium', false, array( 'alt' => '', 'loading' => 'lazy' ) ); ?>
+					<?php echo wp_get_attachment_image( $image['ID'], 'medium', false, array( 'class' => 'product-gallery__thumb-image', 'alt' => '', 'loading' => 'lazy' ) ); ?>
 				</button>
 				<?php endforeach; ?>
 			</div>
@@ -39,24 +39,24 @@ $first    = $images[0] ?? null;
 		</div>
 		<?php endif; ?>
 
-		<article class="rich-copy product-summary">
+		<article class="product-detail__content rich-copy">
 			<?php if ( $eyebrow ) : ?><p class="eyebrow"><?php echo esc_html( $eyebrow ); ?></p><?php endif; ?>
-			<?php if ( $heading ) : ?><h2><?php echo esc_html( $heading ); ?></h2><?php endif; ?>
+			<?php if ( $heading ) : ?><h2 class="product-detail__title"><?php echo esc_html( $heading ); ?></h2><?php endif; ?>
 			<?php if ( $content ) echo wp_kses_post( $content ); ?>
 
 			<?php if ( ! empty( $file['url'] ) || ! empty( $link['url'] ) ) : ?>
-			<div class="product-actions">
+			<div class="product-detail__actions">
 				<?php if ( ! empty( $file['url'] ) ) : ?>
-				<a class="button" href="<?php echo esc_url( $file['url'] ); ?>" download>
+				<a class="product-detail__download btn" href="<?php echo esc_url( $file['url'] ); ?>" download>
 					<?php echo esc_html( $label ); ?>
 					<span class="sr-only">(PDF, <?php echo esc_html( size_format( $file['filesize'] ?? 0 ) ); ?>)</span>
 				</a>
 				<?php endif; ?>
-				<?php echo cre8_link( $link, 'text-link' ); ?>
+				<?php echo cre8_link( $link, 'product-detail__link text-link' ); ?>
 			</div>
 			<?php endif; ?>
 
-			<?php if ( $note ) : ?><p class="product-caution"><?php echo esc_html( $note ); ?></p><?php endif; ?>
+			<?php if ( $note ) : ?><p class="product-detail__note"><?php echo esc_html( $note ); ?></p><?php endif; ?>
 		</article>
 	</div>
 </section>

@@ -2,27 +2,27 @@
 
 <main id="content">
 	<?php
-	get_template_part( 'partials/inner-hero', null, array(
+	get_template_part( 'partials/page-header', null, array(
 		'eyebrow' => 'Search',
 		'heading' => sprintf( __( 'Results for "%s"', 'cre8' ), get_search_query() ),
 	) );
 	?>
 	<section class="section">
-		<div class="wrap search-layout">
-			<form class="search-page-form" action="<?php echo esc_url( home_url( '/' ) ); ?>" method="get" role="search">
-				<label for="search-page-input"><?php esc_html_e( 'Search again', 'cre8' ); ?></label>
-				<div>
-					<input id="search-page-input" type="search" name="s" value="<?php echo esc_attr( get_search_query() ); ?>" required>
-					<button class="button" type="submit"><?php esc_html_e( 'Search', 'cre8' ); ?></button>
+		<div class="container search-page">
+			<form class="search-page__form" action="<?php echo esc_url( home_url( '/' ) ); ?>" method="get" role="search">
+				<label class="search-page__label" for="search-page-input"><?php esc_html_e( 'Search again', 'cre8' ); ?></label>
+				<div class="search-page__row">
+					<input class="search-page__input" id="search-page-input" type="search" name="s" value="<?php echo esc_attr( get_search_query() ); ?>" required>
+					<button class="btn" type="submit"><?php esc_html_e( 'Search', 'cre8' ); ?></button>
 				</div>
 			</form>
 			<?php if ( have_posts() ) : ?>
-			<div class="search-results">
+			<div class="search-page__results">
 				<?php while ( have_posts() ) : the_post(); ?>
 				<article class="search-result">
-					<h2><a href="<?php echo esc_url( get_permalink() ); ?>"><?php the_title(); ?></a></h2>
-					<p><?php echo esc_html( wp_trim_words( get_the_excerpt(), 30 ) ); ?></p>
-					<a class="text-link" href="<?php echo esc_url( get_permalink() ); ?>"><?php esc_html_e( 'View page', 'cre8' ); ?></a>
+					<h2 class="search-result__title"><a class="search-result__link" href="<?php echo esc_url( get_permalink() ); ?>"><?php the_title(); ?></a></h2>
+					<p class="search-result__excerpt"><?php echo esc_html( wp_trim_words( get_the_excerpt(), 30 ) ); ?></p>
+					<a class="search-result__more text-link" href="<?php echo esc_url( get_permalink() ); ?>"><?php esc_html_e( 'View page', 'cre8' ); ?></a>
 				</article>
 				<?php endwhile; ?>
 			</div>

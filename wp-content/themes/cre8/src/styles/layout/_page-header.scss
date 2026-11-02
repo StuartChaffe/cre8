@@ -1,5 +1,5 @@
-// Inner page hero (Page Header block, posts, search, 404)
-.inner-hero {
+// Page header (inner page hero) (Page Header block, posts, search, 404)
+.page-header {
 	position: relative;
 	min-height: 640px;
 	display: flex;
@@ -19,7 +19,7 @@
 			linear-gradient(0deg, rgba(8, 10, 14, .9), transparent 50%);
 	}
 
-	.lede { margin: 1.5rem 0 0; }
+	&__lede { margin: 1.5rem 0 0; }
 
 	@media (max-width: 899px) {
 		min-height: 620px;
@@ -27,19 +27,19 @@
 	}
 }
 
-.inner-hero--standard {
+.page-header--standard {
 	min-height: 540px;
 	@media (max-width: 899px) { min-height: 520px; }
 }
 
 // No image: shorter, with a faint pink glow instead
-.inner-hero--plain {
+.page-header--plain {
 	min-height: 420px;
 	background: radial-gradient(circle at 85% 0, rgba(236, 27, 105, .14), transparent 32%), #0b0d11;
 	&::after { content: none; }
 }
 
-.inner-hero__image {
+.page-header__image {
 	position: absolute;
 	z-index: -3;
 	inset: 0;
@@ -52,13 +52,13 @@
 	@media (max-width: 899px) { object-position: 58% center; }
 }
 
-.inner-hero__copy { max-width: 880px; }
+.page-header__content { max-width: 880px; }
 
 .breadcrumbs {
 	margin-bottom: 1.5rem;
 	color: #aeb3bc;
 	font-size: .76rem;
 
-	a:hover { color: var(--pink-light); }
-	span { margin: 0 .55rem; color: var(--pink); }
+	&__link:hover { color: var(--pink-light); }
+	&__sep { margin: 0 .55rem; color: var(--pink); }
 }
